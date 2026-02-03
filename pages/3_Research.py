@@ -1,14 +1,19 @@
+# pages/3_Research.py
 import streamlit as st
 
-page_md = """
-# Research & Applied Analytics
+st.title("Research & Applied Analytics")
 
-## Master’s Thesis — Supply Chain ESG & Stock Returns
-**Title:** The Impact of Supply Chain ESG Performance on Stock Returns and Volatility  
-**Summary:** This empirical project studies the relationship between supply chain ESG metrics (Scope 3 emissions, Supplier Human Rights) and firm financial performance for European listed companies (STOXX Europe 600 sample). :contentReference[oaicite:22]{index=22}
+st.markdown("""
+## Master’s Thesis — The Impact of Supply Chain ESG Performance on Stock Returns and Volatility
+**Students:** Amit Kumar, Sairam Vinay Shetty
 
-**Methodology:** multivariate regressions with asset-pricing controls; monthly returns and volatility as dependent variables. Data sources planned: Refinitiv / MSCI / Bloomberg.
+**Summary:** Empirical study on whether supply chain ESG (Scope 3 emissions, Supplier Human Rights) influences stock returns and volatility for European listed firms (STOXX Europe 600). :contentReference[oaicite:5]{index=5}
 
-**Status:** Ongoing — analysis and notebooks will be linked here when available.
-"""
-st.markdown(page_md, unsafe_allow_html=True)
+**Methodology (planned):**
+- Dependent variables: monthly stock returns & volatility  
+- Main independent variables: supply chain ESG scores  
+- Controls: firm size, book-to-market, leverage, momentum, sector dummies  
+- Data sources: Refinitiv / MSCI / Bloomberg (as available)
+
+**Status:** Ongoing. Notebooks and results will be linked here when available.
+""", unsafe_allow_html=True)
