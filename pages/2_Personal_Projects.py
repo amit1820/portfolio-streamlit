@@ -38,6 +38,7 @@ project_card(
     impact_lines=["Cleaned monthly summary dataset", "Time-series visualization of total transaction volume"],
     tools="Python (pandas)",
     status="Completed",
+    repo_link="https://github.com/amit1820/bi-data-cleaning-case-study.git"
 )
 
 # Automated Data Reconciliation
@@ -49,4 +50,5 @@ project_card(
     impact_lines=["Reconciled dataset with status labels", "Separate exception file for investigations"],
     tools="Python, pandas",
     status="Completed",
+    repo_link="https://github.com/amit1820/data-reconciliation-exceptions.git"
 )
