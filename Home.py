@@ -16,7 +16,7 @@ ASSETS_DIR = CURRENT_DIR / "assets"
 RESUME_PATH = ASSETS_DIR / "Amit_Kumar_Resume.pdf"
 PROFILE_PIC = ASSETS_DIR / "profile-pic.png"
 
-# Custom CSS with improved font hierarchy
+# Custom CSS with improved color hierarchy
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
@@ -44,7 +44,7 @@ section[data-testid="stSidebarNav"] a:hover {
     color: #f4c430;
 }
 
-/* Typography - Clear hierarchy */
+/* Typography with clear color hierarchy */
 div[data-testid="stMarkdownContainer"] h1 {
     font-family: 'Space Mono', monospace;
     color: #f4c430;
@@ -64,7 +64,7 @@ div[data-testid="stMarkdownContainer"] h2 {
 
 div[data-testid="stMarkdownContainer"] h3 {
     font-family: 'Inter', sans-serif;
-    color: #a8b2d1;
+    color: #64ffda;
     font-size: 1.4rem;
     font-weight: 600;
     margin-top: 1.5rem;
@@ -74,7 +74,7 @@ div[data-testid="stMarkdownContainer"] h3 {
 
 div[data-testid="stMarkdownContainer"] h4 {
     font-family: 'Inter', sans-serif;
-    color: #8892b0;
+    color: #ffd700;
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 1rem;
@@ -118,7 +118,7 @@ div[data-testid="stMetricDelta"] {
     font-size: 0.85rem !important;
 }
 
-/* Download button - dark text on yellow */
+/* Download button */
 .stDownloadButton button {
     background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%);
     color: #0a0e27 !important;
@@ -159,7 +159,7 @@ div[data-testid="stAlert"] {
 
 /* Links */
 a {
-    color: #f4c430;
+    color: #64ffda;
     text-decoration: none;
 }
 
