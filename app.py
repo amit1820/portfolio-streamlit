@@ -7,7 +7,7 @@ st.set_page_config(
     page_title="Amit Kumar — BI & Analytics", 
     layout="wide", 
     page_icon="📊",
-    initial_sidebar_state="collapsed"  # Hide sidebar on home page
+    initial_sidebar_state="expanded"
 )
 
 # Paths
@@ -30,14 +30,35 @@ st.markdown("""
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
 }
 
-/* Hide "app" label in sidebar */
-section[data-testid="stSidebarNav"] {
+/* Hide default page names and show custom labels */
+section[data-testid="stSidebarNav"] li:first-child {
     display: none;
+}
+
+section[data-testid="stSidebarNav"]::before {
+    content: "Home";
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #f4c430;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    display: block;
+    padding: 0.5rem;
 }
 
 /* Sidebar styling */
 [data-testid="stSidebar"] {
     background: linear-gradient(180deg, #0f1729 0%, #141b3d 100%);
+}
+
+section[data-testid="stSidebarNav"] a {
+    color: #ccd6f6;
+    font-family: 'DM Sans', sans-serif;
+}
+
+section[data-testid="stSidebarNav"] a:hover {
+    color: #f4c430;
 }
 
 /* Typography */
@@ -108,12 +129,12 @@ div[data-testid="stMetricDelta"] {
     font-size: 0.85rem !important;
 }
 
-/* Better button styling */
+/* FIXED: Download button with dark text on yellow background */
 .stDownloadButton button {
     background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%);
-    color: #0a0e27;
+    color: #0a0e27 !important;
     font-family: 'Space Mono', monospace;
-    font-weight: 700;
+    font-weight: 700 !important;
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 8px;
@@ -124,6 +145,12 @@ div[data-testid="stMetricDelta"] {
 .stDownloadButton button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(244, 196, 48, 0.4);
+    background: #ffd700;
+}
+
+.stDownloadButton button p {
+    color: #0a0e27 !important;
+    font-weight: 700 !important;
 }
 
 /* Info box styling */
@@ -150,6 +177,24 @@ a:hover {
     color: #ffd700;
     text-decoration: underline;
 }
+
+/* Navigation buttons */
+.stButton button {
+    background: rgba(244, 196, 48, 0.1);
+    color: #f4c430;
+    border: 1px solid rgba(244, 196, 48, 0.3);
+    font-family: 'Space Mono', monospace;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stButton button:hover {
+    background: rgba(244, 196, 48, 0.2);
+    border-color: #f4c430;
+    transform: translateY(-2px);
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -159,7 +204,7 @@ def resume_download_button():
         with open(RESUME_PATH, "rb") as f:
             pdf_bytes = f.read()
         st.download_button(
-            "📄 Download Resume",
+            "Download Resume",
             data=pdf_bytes,
             file_name="Amit_Kumar_Resume.pdf",
             use_container_width=True
@@ -315,23 +360,17 @@ st.markdown("## Explore This Portfolio")
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("#### 💼 Industry Case Studies")
+    st.markdown("#### Industry Case Studies")
     st.write("Production work at Deutsche Börse Group and Arcadis")
-    if st.button("View Case Studies", key="btn1", use_container_width=True):
-        st.switch_page("pages/1_Industry_Case_Studies.py")
 
 with col2:
-    st.markdown("#### 🔬 Personal Projects")
+    st.markdown("#### Personal Projects")
     st.write("Independent analytics projects and GitHub repositories")
-    if st.button("View Projects", key="btn2", use_container_width=True):
-        st.switch_page("pages/2_Personal_Projects.py")
 
 with col3:
-    st.markdown("#### 📚 Research")
+    st.markdown("#### Research")
     st.write("Master's thesis on supply chain ESG performance")
-    if st.button("View Research", key="btn3", use_container_width=True):
-        st.switch_page("pages/3_Research.py")
 
 st.markdown("---")
 
-st.caption("Portfolio built with Streamlit | Updated February 2026 | [Contact](pages/4_Contact.py)")
+st.caption("Portfolio built with Streamlit | Updated February 2026")
