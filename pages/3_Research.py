@@ -96,10 +96,6 @@ a:hover {
 """, unsafe_allow_html=True)
 
 st.title("Research & Applied Analytics")
-st.markdown("### Academic research at Frankfurt School of Finance & Management")
-st.write("Applying quantitative methods to explore ESG factors in supply chains and equity market dynamics.")
-
-st.markdown("---")
 
 # Master's Thesis
 st.markdown("## Master's Thesis")
@@ -107,10 +103,8 @@ st.markdown("### The Impact of Supply Chain ESG Performance on Stock Returns and
 st.caption("**Authors:** Amit Kumar, Sairam Vinay Shetty | Frankfurt School of Finance & Management")
 st.caption("**Status:** Ongoing | Expected Completion: August 2026")
 
-st.markdown("---")
-
 # Research Question
-st.markdown("## Research Question")
+st.markdown("### Research Question")
 st.write("""
 Does supply chain ESG performance, specifically Scope 3 emissions and supplier human rights practices, 
 significantly influence stock returns and volatility for European listed firms? Traditional ESG research 
@@ -124,40 +118,36 @@ outperformance due to reduced operational and reputational risks, and lower vola
 stakeholder relationships and regulatory compliance.
 """)
 
-st.markdown("---")
-
 # Methodology
-st.markdown("## Methodology Overview")
+st.markdown("### Methodology Overview")
 
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.markdown("### Dependent Variables")
+    st.markdown("# Dependent Variables")
     st.write("• Monthly stock returns (log returns)")
     st.write("• Return volatility (rolling standard deviation)")
     st.write("• Risk-adjusted returns (Sharpe ratio)")
     
-    st.markdown("### ESG Variables")
+    st.markdown("# ESG Variables")
     st.write("• Scope 3 emissions intensity")
     st.write("• Supplier human rights scores")
     st.write("• Supply chain transparency metrics")
     st.write("• Supplier audit frequency")
 
 with col2:
-    st.markdown("### Control Variables")
+    st.markdown("## Control Variables")
     st.write("• Firm size (market cap, log)")
     st.write("• Book-to-market ratio")
     st.write("• Leverage (debt-to-equity)")
     st.write("• Momentum (12-month returns)")
     st.write("• Sector fixed effects")
     
-    st.markdown("### Data Sources")
+    st.markdown("## Data Sources")
     st.write("• Refinitiv ESG database")
     st.write("• MSCI ESG ratings")
     st.write("• Bloomberg terminal (pricing)")
     st.write("• STOXX Europe 600 constituents")
-
-st.markdown("---")
 
 # Analytical Approach
 st.markdown("## Analytical Approach")
@@ -168,8 +158,6 @@ Testing whether supply chain ESG metrics have explanatory power beyond tradition
 and direct ESG scores. Robustness checks include lagged variables to address reverse causality and 
 industry-specific subgroup analysis.
 """)
-
-st.markdown("---")
 
 # Expected Contributions
 st.markdown("## Expected Contributions")
