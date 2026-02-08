@@ -23,10 +23,18 @@ with nav_cols[4]:
 
 st.markdown("<div style='margin: 1rem 0;'></div>", unsafe_allow_html=True)
 
-# Custom CSS - Same as Home page
+# Custom CSS
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
+
+[data-testid="stSidebar"] {
+    display: none;
+}
+
+.main > div {
+    padding-top: 1rem;
+}
 
 .main {
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
@@ -36,18 +44,8 @@ st.markdown("""
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
 }
 
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0f1729 0%, #141b3d 100%);
-}
-
-section[data-testid="stSidebarNav"] a {
-    color: #ccd6f6;
-    font-family: 'DM Sans', sans-serif;
-}
-
-section[data-testid="stSidebarNav"] a:hover {
-    color: #f4c430;
-}
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
 
 div[data-testid="stMarkdownContainer"] h1 {
     font-family: 'Space Mono', monospace;
@@ -63,7 +61,6 @@ div[data-testid="stMarkdownContainer"] h2 {
     font-size: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    letter-spacing: -0.5px;
 }
 
 div[data-testid="stMarkdownContainer"] h3 {
@@ -90,17 +87,82 @@ div[data-testid="stMarkdownContainer"] p {
     font-size: 1.05rem;
 }
 
+div[data-testid="stMetric"] {
+    background: linear-gradient(135deg, rgba(244, 196, 48, 0.08) 0%, rgba(20, 27, 61, 0.4) 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(244, 196, 48, 0.2);
+}
+
+div[data-testid="stMetricLabel"] {
+    font-family: 'Space Mono', monospace;
+    color: #f4c430 !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+div[data-testid="stMetricValue"] {
+    font-family: 'Space Mono', monospace;
+    color: #ffffff !important;
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+}
+
+div[data-testid="stMetricDelta"] {
+    font-family: 'DM Sans', sans-serif;
+    color: #a8b2d1 !important;
+    font-size: 0.85rem !important;
+}
+
+.stDownloadButton button {
+    background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%);
+    color: #0a0e27 !important;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700 !important;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stDownloadButton button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(244, 196, 48, 0.4);
+}
+
+.stDownloadButton button p {
+    color: #0a0e27 !important;
+    font-weight: 700 !important;
+}
+
+.stButton button {
+    background: transparent;
+    color: #ccd6f6;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.stButton button:hover {
+    color: #f4c430;
+    background: rgba(244, 196, 48, 0.1);
+    transform: translateY(-2px);
+}
+
 div[data-testid="stAlert"] {
     background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(20, 27, 61, 0.3) 100%);
     border: 1px solid rgba(244, 196, 48, 0.3);
     border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
 }
 
 .stCaption {
     font-family: 'Inter', sans-serif;
     color: #8892b0 !important;
-    font-size: 0.9rem !important;
 }
 
 a {
