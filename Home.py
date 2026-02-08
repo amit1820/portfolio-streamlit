@@ -16,7 +16,7 @@ ASSETS_DIR = CURRENT_DIR / "assets"
 RESUME_PATH = ASSETS_DIR / "Amit_Kumar_Resume.pdf"
 PROFILE_PIC = ASSETS_DIR / "profile-pic.png"
 
-# Custom CSS with top navigation
+# Custom CSS with stylish top navigation
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
@@ -30,6 +30,11 @@ section[data-testid="stSidebarNav"] {
     display: none;
 }
 
+/* Remove default padding */
+.main > div {
+    padding-top: 0rem;
+}
+
 /* Main background */
 .main {
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
@@ -39,76 +44,9 @@ section[data-testid="stSidebarNav"] {
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
 }
 
-/* Top Navigation Bar */
-.top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    background: linear-gradient(135deg, rgba(15, 23, 41, 0.95) 0%, rgba(20, 27, 61, 0.95) 100%);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(244, 196, 48, 0.2);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: -1rem -1rem 2rem -1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.nav-brand {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: #f4c430;
-    text-decoration: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.nav-link {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ccd6f6;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-}
-
-.nav-link:hover {
-    color: #f4c430;
-    background: rgba(244, 196, 48, 0.1);
-}
-
-.nav-link.active {
-    color: #f4c430;
-    background: rgba(244, 196, 48, 0.15);
-}
-
-/* Mobile responsive nav */
-@media (max-width: 768px) {
-    .top-nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.8rem;
-    }
-    
-    .nav-link {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-    }
-}
+/* Hide Streamlit branding */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
 
 /* Typography */
 div[data-testid="stMarkdownContainer"] h1 {
@@ -206,6 +144,42 @@ div[data-testid="stMetricDelta"] {
     font-weight: 700 !important;
 }
 
+/* Navigation buttons - stylish version */
+.stButton button {
+    background: transparent;
+    color: #ccd6f6;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stButton button:hover {
+    color: #f4c430;
+    background: rgba(244, 196, 48, 0.1);
+    transform: translateY(-2px);
+}
+
+.stButton button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: #f4c430;
+    transition: transform 0.3s ease;
+}
+
+.stButton button:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
 /* Info box */
 div[data-testid="stAlert"] {
     background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(20, 27, 61, 0.3) 100%);
@@ -234,19 +208,32 @@ a:hover {
 </style>
 """, unsafe_allow_html=True)
 
-# Top Navigation Bar
-st.markdown("""
-<div class="top-nav">
-    <a href="/" class="nav-brand">AMIT KUMAR</a>
-    <div class="nav-links">
-        <a href="/" class="nav-link active">Home</a>
-        <a href="/Industry_Case_Studies" class="nav-link">Industry Cases</a>
-        <a href="/Personal_Projects" class="nav-link">Projects</a>
-        <a href="/Research" class="nav-link">Research</a>
-        <a href="/Contact" class="nav-link">Contact</a>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+# Top Navigation using Streamlit columns
+st.markdown("<div style='margin-bottom: 2rem;'>", unsafe_allow_html=True)
+nav_col1, nav_col2 = st.columns([1, 3])
+
+with nav_col1:
+    st.markdown("## AMIT KUMAR")
+
+with nav_col2:
+    nav_cols = st.columns(5)
+    with nav_cols[0]:
+        st.markdown("**Home**")  # Current page - bold
+    with nav_cols[1]:
+        if st.button("Industry Cases", key="nav1", use_container_width=True):
+            st.switch_page("pages/1_Industry_Case_Studies.py")
+    with nav_cols[2]:
+        if st.button("Projects", key="nav2", use_container_width=True):
+            st.switch_page("pages/2_Personal_Projects.py")
+    with nav_cols[3]:
+        if st.button("Research", key="nav3", use_container_width=True):
+            st.switch_page("pages/3_Research.py")
+    with nav_cols[4]:
+        if st.button("Contact", key="nav4", use_container_width=True):
+            st.switch_page("pages/4_Contact.py")
+
+st.markdown("---")
+st.markdown("</div>", unsafe_allow_html=True)
 
 # Resume download helper
 def resume_download_button():
