@@ -1,4 +1,4 @@
-# Home.py
+# app.py
 import streamlit as st
 from pathlib import Path
 
@@ -16,10 +16,10 @@ ASSETS_DIR = CURRENT_DIR / "assets"
 RESUME_PATH = ASSETS_DIR / "Amit_Kumar_Resume.pdf"
 PROFILE_PIC = ASSETS_DIR / "profile-pic.png"
 
-# Custom CSS with improved font hierarchy
+# Custom CSS
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
 
 /* Main background */
 .main {
@@ -28,6 +28,23 @@ st.markdown("""
 
 .stApp {
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+}
+
+/* Hide default page names and show custom labels */
+section[data-testid="stSidebarNav"] li:first-child {
+    display: none;
+}
+
+section[data-testid="stSidebarNav"]::before {
+    content: "Home";
+    margin-left: 1rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #f4c430;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    display: block;
+    padding: 0.5rem;
 }
 
 /* Sidebar styling */
@@ -44,13 +61,12 @@ section[data-testid="stSidebarNav"] a:hover {
     color: #f4c430;
 }
 
-/* Typography - Clear hierarchy */
+/* Typography */
 div[data-testid="stMarkdownContainer"] h1 {
     font-family: 'Space Mono', monospace;
     color: #f4c430;
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    letter-spacing: -1px;
 }
 
 div[data-testid="stMarkdownContainer"] h2 {
@@ -59,26 +75,21 @@ div[data-testid="stMarkdownContainer"] h2 {
     font-size: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    letter-spacing: -0.5px;
 }
 
 div[data-testid="stMarkdownContainer"] h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Mono', monospace;
     color: #a8b2d1;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.3rem;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-    letter-spacing: 0px;
 }
 
 div[data-testid="stMarkdownContainer"] h4 {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Mono', monospace;
     color: #8892b0;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1rem;
     margin-top: 1rem;
-    letter-spacing: 0.3px;
 }
 
 div[data-testid="stMarkdownContainer"] p {
@@ -88,7 +99,7 @@ div[data-testid="stMarkdownContainer"] p {
     font-size: 1.05rem;
 }
 
-/* Metric cards */
+/* Metric cards with better colors */
 div[data-testid="stMetric"] {
     background: linear-gradient(135deg, rgba(244, 196, 48, 0.08) 0%, rgba(20, 27, 61, 0.4) 100%);
     padding: 1.5rem;
@@ -118,7 +129,7 @@ div[data-testid="stMetricDelta"] {
     font-size: 0.85rem !important;
 }
 
-/* Download button - dark text on yellow */
+/* FIXED: Download button with dark text on yellow background */
 .stDownloadButton button {
     background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%);
     color: #0a0e27 !important;
@@ -142,7 +153,7 @@ div[data-testid="stMetricDelta"] {
     font-weight: 700 !important;
 }
 
-/* Info box */
+/* Info box styling */
 div[data-testid="stAlert"] {
     background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(20, 27, 61, 0.3) 100%);
     border: 1px solid rgba(244, 196, 48, 0.3);
@@ -150,11 +161,10 @@ div[data-testid="stAlert"] {
     font-family: 'DM Sans', sans-serif;
 }
 
-/* Caption */
+/* Caption styling */
 .stCaption {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Mono', monospace;
     color: #8892b0 !important;
-    font-size: 0.9rem !important;
 }
 
 /* Links */
@@ -166,6 +176,24 @@ a {
 a:hover {
     color: #ffd700;
     text-decoration: underline;
+}
+
+/* Navigation buttons */
+.stButton button {
+    background: rgba(244, 196, 48, 0.1);
+    color: #f4c430;
+    border: 1px solid rgba(244, 196, 48, 0.3);
+    font-family: 'Space Mono', monospace;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.stButton button:hover {
+    background: rgba(244, 196, 48, 0.2);
+    border-color: #f4c430;
+    transform: translateY(-2px);
 }
 </style>
 """, unsafe_allow_html=True)
@@ -195,6 +223,7 @@ with col1:
     except:
         st.image("https://via.placeholder.com/400x400/0a0e27/f4c430?text=AK", use_column_width=True)
     
+    # Download button under photo
     resume_download_button()
 
 with col2:
@@ -218,7 +247,7 @@ with col2:
 
 st.markdown("---")
 
-# Key Metrics
+# Key Metrics with improved labels
 st.markdown("## Professional Impact")
 
 col1, col2, col3, col4 = st.columns(4)
@@ -237,7 +266,7 @@ with col4:
 
 st.markdown("---")
 
-# Current Role
+# Current Role - Highlight box
 st.markdown("## Current Role")
 
 st.info("""
@@ -280,6 +309,7 @@ with col1:
     """)
     st.caption("**Tech Stack:** Python, OpenCV, PyMuPDF")
     
+    # Metrics for this project
     subcol1, subcol2 = st.columns(2)
     with subcol1:
         st.metric("Documents", "400+/month", "Automated")
@@ -296,6 +326,7 @@ with col2:
     """)
     st.caption("**Tech Stack:** Power BI, Apache Zeppelin, Scala, SQL")
     
+    # Metrics for this project
     subcol1, subcol2 = st.columns(2)
     with subcol1:
         st.metric("Adoption", "Daily", "Trader usage")
@@ -320,6 +351,25 @@ with col2:
     st.markdown("### Bachelor of Engineering")
     st.write("**Bangalore Institute of Technology, India**")
     st.write("Civil Engineering | CGPA: 8.03/10 | Aug 2017 - Aug 2021")
+
+st.markdown("---")
+
+# Navigation call-to-action
+st.markdown("## Explore This Portfolio")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown("#### Industry Case Studies")
+    st.write("Production work at Deutsche Börse Group and Arcadis")
+
+with col2:
+    st.markdown("#### Personal Projects")
+    st.write("Independent analytics projects and GitHub repositories")
+
+with col3:
+    st.markdown("#### Research")
+    st.write("Master's thesis on supply chain ESG performance")
 
 st.markdown("---")
 
