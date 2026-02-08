@@ -28,14 +28,21 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
 
+/* Hide sidebar completely */
 [data-testid="stSidebar"] {
     display: none;
 }
 
-.main > div {
-    padding-top: 1rem;
+section[data-testid="stSidebarNav"] {
+    display: none;
 }
 
+/* Remove default padding */
+.main > div {
+    padding-top: 0rem;
+}
+
+/* Main background */
 .main {
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
 }
@@ -44,9 +51,11 @@ st.markdown("""
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
 }
 
+/* Hide Streamlit branding */
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 
+/* Typography */
 div[data-testid="stMarkdownContainer"] h1 {
     font-family: 'Space Mono', monospace;
     color: #f4c430;
@@ -61,6 +70,7 @@ div[data-testid="stMarkdownContainer"] h2 {
     font-size: 2rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
+    letter-spacing: -0.5px;
 }
 
 div[data-testid="stMarkdownContainer"] h3 {
@@ -87,6 +97,7 @@ div[data-testid="stMarkdownContainer"] p {
     font-size: 1.05rem;
 }
 
+/* Metric cards */
 div[data-testid="stMetric"] {
     background: linear-gradient(135deg, rgba(244, 196, 48, 0.08) 0%, rgba(20, 27, 61, 0.4) 100%);
     padding: 1.5rem;
@@ -100,6 +111,7 @@ div[data-testid="stMetricLabel"] {
     font-size: 0.9rem !important;
     font-weight: 700 !important;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 div[data-testid="stMetricValue"] {
@@ -115,6 +127,7 @@ div[data-testid="stMetricDelta"] {
     font-size: 0.85rem !important;
 }
 
+/* Download button */
 .stDownloadButton button {
     background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%);
     color: #0a0e27 !important;
@@ -123,12 +136,14 @@ div[data-testid="stMetricDelta"] {
     border: none;
     padding: 0.75rem 2rem;
     border-radius: 8px;
+    font-size: 1rem;
     transition: all 0.3s ease;
 }
 
 .stDownloadButton button:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(244, 196, 48, 0.4);
+    background: #ffd700;
 }
 
 .stDownloadButton button p {
@@ -136,6 +151,7 @@ div[data-testid="stMetricDelta"] {
     font-weight: 700 !important;
 }
 
+/* Navigation buttons - stylish version */
 .stButton button {
     background: transparent;
     color: #ccd6f6;
@@ -146,6 +162,7 @@ div[data-testid="stMetricDelta"] {
     padding: 0.6rem 1.5rem;
     border-radius: 6px;
     transition: all 0.3s ease;
+    position: relative;
 }
 
 .stButton button:hover {
@@ -154,17 +171,38 @@ div[data-testid="stMetricDelta"] {
     transform: translateY(-2px);
 }
 
+.stButton button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: #f4c430;
+    transition: transform 0.3s ease;
+}
+
+.stButton button:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Info box */
 div[data-testid="stAlert"] {
     background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(20, 27, 61, 0.3) 100%);
     border: 1px solid rgba(244, 196, 48, 0.3);
     border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
 }
 
+/* Caption */
 .stCaption {
     font-family: 'Inter', sans-serif;
     color: #8892b0 !important;
+    font-size: 0.9rem !important;
 }
 
+/* Links */
 a {
     color: #64ffda;
     text-decoration: none;
