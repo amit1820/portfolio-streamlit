@@ -2,12 +2,12 @@
 import streamlit as st
 from pathlib import Path
 
-# Page config
+# Page config - hide sidebar
 st.set_page_config(
     page_title="Amit Kumar — BI & Analytics", 
     layout="wide", 
     page_icon="📊",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 # Paths
@@ -16,10 +16,19 @@ ASSETS_DIR = CURRENT_DIR / "assets"
 RESUME_PATH = ASSETS_DIR / "Amit_Kumar_Resume.pdf"
 PROFILE_PIC = ASSETS_DIR / "profile-pic.png"
 
-# Custom CSS with improved color hierarchy
+# Custom CSS with top navigation
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
+
+/* Hide sidebar completely */
+[data-testid="stSidebar"] {
+    display: none;
+}
+
+section[data-testid="stSidebarNav"] {
+    display: none;
+}
 
 /* Main background */
 .main {
@@ -30,21 +39,78 @@ st.markdown("""
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
 }
 
-/* Sidebar styling */
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0f1729 0%, #141b3d 100%);
+/* Top Navigation Bar */
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: linear-gradient(135deg, rgba(15, 23, 41, 0.95) 0%, rgba(20, 27, 61, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(244, 196, 48, 0.2);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -1rem -1rem 2rem -1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-section[data-testid="stSidebarNav"] a {
-    color: #ccd6f6;
-    font-family: 'DM Sans', sans-serif;
-}
-
-section[data-testid="stSidebarNav"] a:hover {
+.nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: #f4c430;
+    text-decoration: none;
 }
 
-/* Typography with clear color hierarchy */
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ccd6f6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+.nav-link:hover {
+    color: #f4c430;
+    background: rgba(244, 196, 48, 0.1);
+}
+
+.nav-link.active {
+    color: #f4c430;
+    background: rgba(244, 196, 48, 0.15);
+}
+
+/* Mobile responsive nav */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Typography */
 div[data-testid="stMarkdownContainer"] h1 {
     font-family: 'Space Mono', monospace;
     color: #f4c430;
@@ -69,7 +135,6 @@ div[data-testid="stMarkdownContainer"] h3 {
     font-weight: 600;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-    letter-spacing: 0px;
 }
 
 div[data-testid="stMarkdownContainer"] h4 {
@@ -78,7 +143,6 @@ div[data-testid="stMarkdownContainer"] h4 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 1rem;
-    letter-spacing: 0.3px;
 }
 
 div[data-testid="stMarkdownContainer"] p {
@@ -170,6 +234,20 @@ a:hover {
 </style>
 """, unsafe_allow_html=True)
 
+# Top Navigation Bar
+st.markdown("""
+<div class="top-nav">
+    <a href="/" class="nav-brand">AMIT KUMAR</a>
+    <div class="nav-links">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/Industry_Case_Studies" class="nav-link">Industry Cases</a>
+        <a href="/Personal_Projects" class="nav-link">Projects</a>
+        <a href="/Research" class="nav-link">Research</a>
+        <a href="/Contact" class="nav-link">Contact</a>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
 # Resume download helper
 def resume_download_button():
     try:
@@ -199,7 +277,7 @@ with col1:
 
 with col2:
     st.markdown("# Amit Kumar")
-    st.markdown("## Business Intelligence & Analytics")
+    st.markdown("### Business Intelligence & Analytics")
     
     st.markdown("""
     Business Intelligence Analyst with 3+ years of experience designing dashboards, automating 
@@ -271,7 +349,7 @@ st.markdown("## Featured Work")
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.markdown("#### Computer Vision Document Verification")
+    st.markdown("### Computer Vision Document Verification")
     st.caption("Deutsche Börse AG | July 2025 - Dec 2025")
     st.write("""
     Developed automated verification tool using Python (OpenCV, PyMuPDF) to detect stamps and 
@@ -287,7 +365,7 @@ with col1:
         st.metric("Time Saved", "50%+", "Manual review")
 
 with col2:
-    st.markdown("#### Real-Time Trading Dashboards")
+    st.markdown("### Real-Time Trading Dashboards")
     st.caption("Deutsche Börse AG | July 2025 - Dec 2025")
     st.write("""
     Designed and deployed live Power BI dashboards integrating Scala and Apache Zeppelin data sources. 
@@ -310,14 +388,14 @@ st.markdown("## Education")
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.markdown("#### Master of Science in Management")
+    st.markdown("### Master of Science in Management")
     st.write("**Frankfurt School of Finance & Management**")
     st.write("CGPA: 2.1/4.0 (German scale) | Sept 2024 - Aug 2026")
     st.caption("Concentration: Digital Business, Technology & Operations (DBTO)")
     st.caption("Relevant Coursework: AI & Operations, Data Science, Financial Analysis")
 
 with col2:
-    st.markdown("#### Bachelor of Engineering")
+    st.markdown("### Bachelor of Engineering")
     st.write("**Bangalore Institute of Technology, India**")
     st.write("Civil Engineering | CGPA: 8.03/10 | Aug 2017 - Aug 2021")
 
