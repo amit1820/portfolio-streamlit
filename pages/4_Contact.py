@@ -112,14 +112,14 @@ st.markdown("## Contact Information")
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.markdown("### Email")
+    st.markdown("#### Email")
     st.write("amit.kumar.analytics.eu@gmail.com")
     
-    st.markdown("### Location")
+    st.markdown("#### Location")
     st.write("Frankfurt am Main, Germany")
     st.caption("Open to hybrid/remote opportunities")
     
-    st.markdown("### Phone")
+    st.markdown("#### Phone")
     st.write("+49 15560576084")
 
 with col2:
@@ -181,7 +181,7 @@ st.markdown("---")
 # Response Time
 st.markdown("## Response Time")
 st.caption("""
-I typically respond to emails within 24-48 hours. For urgent inquiries, please mention 
+I typically respond to emails within 24 hours. For urgent inquiries, please mention 
 "Urgent" in the subject line.
 """)
 
