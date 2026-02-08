@@ -211,7 +211,7 @@ with col1:
 
 with col2:
     st.markdown("# Amit Kumar")
-    st.markdown("### Business Intelligence & Analytics")
+    st.markdown("## Business Intelligence & Analytics")
     st.markdown("""
     Business Intelligence Analyst with 3+ years of experience designing dashboards, automating 
     reporting pipelines, and delivering data-driven insights across financial markets and enterprise 
@@ -267,7 +267,7 @@ st.markdown("---")
 st.markdown("## Featured Work")
 col1, col2 = st.columns(2, gap="large")
 with col1:
-    st.markdown("### Computer Vision Document Verification")
+    st.markdown("#### Computer Vision Document Verification")
     st.caption("Deutsche Börse AG | July 2025 - Dec 2025")
     st.write("""
     Developed automated verification tool using Python (OpenCV, PyMuPDF) to detect stamps and 
@@ -281,7 +281,7 @@ with col1:
         st.metric("Time Saved", "50%+", "Manual review")
 
 with col2:
-    st.markdown("### Real-Time Trading Dashboards")
+    st.markdown("#### Real-Time Trading Dashboards")
     st.caption("Deutsche Börse AG | July 2025 - Dec 2025")
     st.write("""
     Designed and deployed live Power BI dashboards integrating Scala and Apache Zeppelin data sources. 
@@ -299,12 +299,12 @@ st.markdown("---")
 st.markdown("## Education")
 col1, col2 = st.columns(2, gap="large")
 with col1:
-    st.markdown("### Master of Science in Management")
+    st.markdown("#### Master of Science in Management")
     st.write("**Frankfurt School of Finance & Management**")
     st.write("CGPA: 2.1/4.0 (German scale) | Sept 2024 - Aug 2026")
     st.caption("Concentration: Digital Business, Technology & Operations (DBTO)")
 with col2:
-    st.markdown("### Bachelor of Engineering")
+    st.markdown("#### Bachelor of Engineering")
     st.write("**Bangalore Institute of Technology, India**")
     st.write("Civil Engineering | CGPA: 8.03/10 | Aug 2017 - Aug 2021")
 
