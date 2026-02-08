@@ -130,7 +130,7 @@ with col2:
     st.write("[github.com/amit1820](https://github.com/amit1820)")
     
     st.markdown("#### Portfolio")
-    st.write("(https://portfolio-app-qirxqb9lsf8pvg6tpduxpk.streamlit.app/)")
+    st.write("[Click here](https://portfolio-app-qirxqb9lsf8pvg6tpduxpk.streamlit.app/)")
 
 st.markdown("---")
 
