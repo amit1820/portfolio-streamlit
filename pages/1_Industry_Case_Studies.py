@@ -3,6 +3,25 @@ import streamlit as st
 
 st.set_page_config(page_title="Industry Case Studies", layout="wide", page_icon="💼")
 
+# Top Navigation - centered
+nav_cols = st.columns(5)
+with nav_cols[0]:
+    if st.button("Home", key="nav0", use_container_width=True):
+        st.switch_page("Home.py")
+with nav_cols[1]:
+    if st.button("Industry Cases", key="nav1", use_container_width=True):
+        st.switch_page("pages/1_Industry_Case_Studies.py")
+with nav_cols[2]:
+    if st.button("Projects", key="nav2", use_container_width=True):
+        st.switch_page("pages/2_Personal_Projects.py")
+with nav_cols[3]:
+    if st.button("Research", key="nav3", use_container_width=True):
+        st.switch_page("pages/3_Research.py")
+with nav_cols[4]:
+    if st.button("Contact", key="nav4", use_container_width=True):
+        st.switch_page("pages/4_Contact.py")
+
+st.markdown("<div style='margin: 1rem 0;'></div>", unsafe_allow_html=True)
 # Custom CSS - Same as Home page
 st.markdown("""
 <style>
