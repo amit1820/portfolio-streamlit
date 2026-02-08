@@ -123,14 +123,14 @@ with col1:
     st.write("+49 15560576084")
 
 with col2:
-    st.markdown("### LinkedIn")
+    st.markdown("#### LinkedIn")
     st.write("[linkedin.com/in/amit1820](https://www.linkedin.com/in/amit1820)")
     
-    st.markdown("### GitHub")
+    st.markdown("#### GitHub")
     st.write("[github.com/amit1820](https://github.com/amit1820)")
     
-    st.markdown("### Portfolio")
-    st.write("This site")
+    st.markdown("#### Portfolio")
+    st.write("(https://portfolio-app-qirxqb9lsf8pvg6tpduxpk.streamlit.app/)")
 
 st.markdown("---")
 
