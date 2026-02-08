@@ -53,7 +53,7 @@ st.markdown("---")
 st.subheader("Master's Thesis")
 st.markdown("**The Impact of Supply Chain ESG Performance on Stock Returns and Volatility**")
 st.caption("Authors: Amit Kumar, Sairam Vinay Shetty | Frankfurt School of Finance & Management")
-st.markdown("**Status:** Ongoing | Expected Completion: August 2026")
+st.markdown("**Status:** Ongoing | Expected Completion: May 2026")
 
 st.markdown("**Research Question**")
 st.write("""
