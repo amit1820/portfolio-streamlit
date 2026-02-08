@@ -1,6 +1,6 @@
 # pages/1_Industry_Case_Studies_Enhanced.py
 import streamlit as st
-from components_enhanced import project_card_enhanced, load_project_card_css
+from components import project_card_enhanced, load_project_card_css
 
 st.set_page_config(page_title="Industry Case Studies", layout="wide", page_icon="💼")
 
