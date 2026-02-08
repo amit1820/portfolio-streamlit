@@ -1,7 +1,7 @@
 # pages/1_Industry_Case_Studies.py
 import streamlit as st
 
-st.set_page_config(page_title="Industry Case Studies", layout="wide", page_icon="💼")
+st.set_page_config(page_title="Industry Case Studies", layout="wide")
 
 # Custom CSS - using st.markdown with proper syntax
 st.markdown("""
