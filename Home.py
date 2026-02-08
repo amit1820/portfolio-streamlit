@@ -7,7 +7,6 @@ st.set_page_config(
     page_title="Amit Kumar — BI & Analytics", 
     layout="wide", 
     page_icon="📊",
-    initial_sidebar_state="collapsed"
 )
 
 # Paths
