@@ -128,16 +128,16 @@ div[data-testid="stMetricDelta"] {
     font-weight: 700 !important;
 }
 
-.stButton button {
-    background: transparent;
-    color: #ccd6f6;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.6rem 1.5rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+.stButton button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 80%;
+    height: 2px;
+    background: #f4c430;
+    transition: transform 0.3s ease;
 }
 
 .stButton button:hover {
