@@ -173,7 +173,7 @@ a:hover {
 # Top Navigation - centered
 nav_cols = st.columns(5)
 with nav_cols[0]:
-    if st.button("Home", key="nav1", use_container_width=True):
+    if st.button("Home", key="nav0", use_container_width=True):
         st.switch_page("Home.py")
 with nav_cols[1]:
     if st.button("Industry Cases", key="nav1", use_container_width=True):
