@@ -15,7 +15,7 @@ ASSETS_DIR = CURRENT_DIR / "assets"
 RESUME_PATH = ASSETS_DIR / "Amit_Kumar_Resume.pdf"
 PROFILE_PIC = ASSETS_DIR / "profile-pic.png"
 
-# Custom CSS
+# Custom CSS (keeping your existing styling)
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
@@ -143,7 +143,7 @@ div[data-testid="stMetricDelta"] {
     font-weight: 700 !important;
 }
 
-/* Navigation buttons - stylish version */
+/* Navigation buttons */
 .stButton button {
     background: transparent;
     color: #ccd6f6;
@@ -207,7 +207,7 @@ a:hover {
 </style>
 """, unsafe_allow_html=True)
 
-# Top Navigation - centered
+# Top Navigation
 nav_cols = st.columns(5)
 with nav_cols[0]:
     if st.button("Home", key="nav0", use_container_width=True):
@@ -281,7 +281,7 @@ st.markdown("## Current Role")
 st.info("""
 **Intern - Business Analytics** at **Eurex (Deutsche Börse Group)** | January 2026 - Present
 
-Working on Power BI dashboards for commercial sales, automating BAU tasks with Python and VBA, 
+Designing Power BI dashboards for commercial sales, automating BAU tasks with Python and VBA, 
 and extracting trading data using SQL across derivatives products.
 """)
 
@@ -298,6 +298,24 @@ with col2:
     st.write("• Most Liquid Products lists and interactive charts")
     st.write("• Product presentations for TRF, FTSE 100, ESG segments")
     st.write("• Monthly market analytics newsletters")
+
+st.markdown("---")
+
+st.markdown("## Career Journey")
+
+# Timeline
+timeline_data = [
+    ("Jan 2026 - Present", "Eurex (Deutsche Börse Group)", "Intern – Business Analytics", "Power BI dashboards, Python/VBA automation, SQL data extraction"),
+    ("July 2025 - Dec 2025", "Deutsche Börse AG", "Working Student – Data Analytics", "Power Automate workflows, computer vision verification, real-time dashboards"),
+    ("Aug 2022 - July 2024", "Arcadis", "BIM Engineer", "Power BI dashboards, Python automation, cross-functional projects"),
+    ("Feb 2022 - July 2022", "Alliant Advisory", "Associate – Cost Segregation", "Financial data analysis, Excel automation, project metrics"),
+    ("Jan 2021 - Jan 2022", "Atal Incubation Centre", "Program Associate Intern", "MySQL databases, SQL workflows, performance dashboards"),
+]
+
+for period, company, role, highlights in timeline_data:
+    with st.expander(f"**{company}** — {role}"):
+        st.caption(period)
+        st.write(highlights)
 
 st.markdown("---")
 
@@ -340,10 +358,26 @@ with col1:
     st.write("**Frankfurt School of Finance & Management**")
     st.write("CGPA: 2.1/4.0 (German scale) | Sept 2024 - Aug 2026")
     st.caption("Concentration: Digital Business, Technology & Operations (DBTO)")
+    st.caption("Relevant Coursework: AI & Operations, Data Science, Financial Analysis")
 with col2:
     st.markdown("#### Bachelor of Engineering")
     st.write("**Bangalore Institute of Technology, India**")
     st.write("Civil Engineering | CGPA: 8.03/10 | Aug 2017 - Aug 2021")
+    st.caption("Built strong analytical and problem-solving foundation")
+
+st.markdown("---")
+
+st.markdown("## Leadership & Activities")
+col1, col2 = st.columns(2)
+with col1:
+    st.markdown("#### FS Quant Data Science – Trader Team")
+    st.caption("Frankfurt School | Aug 2025 - Present")
+    st.write("Researching markets, developing trading strategies, and practicing risk-aware execution")
+
+with col2:
+    st.markdown("#### FS Blockchain – Tokenized Assets Team")
+    st.caption("Frankfurt School | Apr 2025 - Present")
+    st.write("Contributing to research on blockchain innovation and tokenized asset markets")
 
 st.markdown("---")
 st.caption("Portfolio built with Streamlit | Updated February 2026")
