@@ -356,13 +356,13 @@ col1, col2 = st.columns(2, gap="large")
 with col1:
     st.markdown("#### Master of Science in Management")
     st.write("**Frankfurt School of Finance & Management**")
-    st.write("CGPA: 2.1/4.0 (German scale) | Sept 2024 - Aug 2026")
+    st.write("Sept 2024 - Aug 2026")
     st.caption("Concentration: Digital Business, Technology & Operations (DBTO)")
     st.caption("Relevant Coursework: AI & Operations, Data Science, Financial Analysis")
 with col2:
     st.markdown("#### Bachelor of Engineering")
     st.write("**Bangalore Institute of Technology, India**")
-    st.write("Civil Engineering | CGPA: 8.03/10 | Aug 2017 - Aug 2021")
+    st.write("Civil Engineering | Aug 2017 - Aug 2021")
     st.caption("Built strong analytical and problem-solving foundation")
 
 st.markdown("---")
