@@ -223,7 +223,7 @@ st.markdown("---")
 
 # Project 1
 st.markdown("## Interactive BI Analytics Dashboard")
-st.caption("**Status:** In Progress")
+st.caption("**Status:** Completed")
 
 col1, col2 = st.columns([2, 1])
 
@@ -257,7 +257,7 @@ st.markdown("---")
 
 # Project 2
 st.markdown("## End-to-End Analytics Pipeline")
-st.caption("**Status:** In Progress")
+st.caption("**Status:** Completed")
 
 col1, col2 = st.columns([2, 1])
 
