@@ -284,11 +284,11 @@ with col1:
 
 with col2:
     st.markdown("#### Pipeline Stages")
-    st.write("• Stage 1: Data ingestion with schema validation")
-    st.write("• Stage 2: Cleaning, type fixes, feature engineering")
-    st.write("• Stage 3: Quality checks (completeness, uniqueness, consistency)")
-    st.write("• Stage 4: 5 aggregation views (daily, product, customer, regional, hourly)")
-    st.write("• Stage 5: Multi-format output with validation reports")
+    st.write("Stage 1: Data ingestion with schema validation")
+    st.write("Stage 2: Cleaning, type fixes, feature engineering")
+    st.write("Stage 3: Quality checks (completeness, uniqueness, consistency)")
+    st.write("Stage 4: 5 aggregation views (daily, product, customer, regional, hourly)")
+    st.write("Stage 5: Multi-format output with validation reports")
 
 if st.button("View Code - Analytics Pipeline", key="proj2"):
     st.markdown("[GitHub Repository](https://github.com/amit1820/end-to-end-analytics-pipeline)")
