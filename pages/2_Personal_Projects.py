@@ -230,25 +230,28 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.markdown("#### Purpose")
     st.write("""
-    Reusable dashboard template for rapid analytics deployment. Designed to be stakeholder-friendly 
-    with interactive filters and export capabilities.
+    Professional Business Intelligence dashboard built with Streamlit for enterprise-grade analytics 
+    and reporting. Features advanced filtering, multiple visualization types, period comparison, and 
+    comprehensive data export capabilities.
     """)
     
     st.markdown("#### Approach")
     st.write("""
-    Built with Streamlit for UI, pandas for data processing, and Plotly for visualizations. 
-    Implements KPI cards, time-series charts, dynamic filters, and CSV export functionality. 
-    Mobile-responsive design following dashboard best practices.
+    Built with clean, professional interface using Plotly for interactive visualizations. Implements 
+    multi-dimensional filtering (date range, region, product, segment, channel), quick date presets 
+    (30/90 days, 6 months, YTD), period-over-period comparison, and three aggregation levels 
+    (daily, weekly, monthly).
     """)
     
-    st.caption("**Tech Stack:** Streamlit, Pandas, Plotly")
+    st.caption("**Tech Stack:** Streamlit, Pandas, Plotly, NumPy")
 
 with col2:
-    st.markdown("#### Technical Focus")
-    st.write("• Interactive data exploration with dynamic filters")
-    st.write("• Clean UI/UX for non-technical users")
-    st.write("• Export functionality for deeper analysis")
-    st.write("• Zero licensing costs, deployable via Streamlit Cloud")
+    st.markdown("#### Key Features")
+    st.write("• 4 analysis tabs: Overview, Product Analysis, Customer Insights, Detailed Data")
+    st.write("• Real-time chart updates with filter changes")
+    st.write("• Multiple export formats (CSV, Excel)")
+    st.write("• Automated trend lines and statistical summaries")
+    st.write("• Sortable data tables with custom views")
 
 if st.button("View Code - Interactive BI App", key="proj1"):
     st.markdown("[GitHub Repository](https://github.com/amit1820/interactive-bi-analytics-app)")
@@ -264,24 +267,28 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.markdown("#### Purpose")
     st.write("""
-    Demonstrate production-grade ETL pipeline with proper engineering practices. 
-    Most portfolios show outputs but not the engineering behind them.
+    Production-grade ETL pipeline demonstrating software engineering best practices for data analytics. 
+    Built with modular architecture, comprehensive logging, automated data quality validation, and 
+    multiple output formats. Processes 10,000+ transactions through 5 automated stages.
     """)
     
     st.markdown("#### Approach")
     st.write("""
-    Modular pipeline with separation of concerns: ingestion, transformation, validation, aggregation, output. 
-    Includes pytest for data quality tests, structured logging, and configuration management.
+    Modular pipeline with five separate components: Data Ingestion (loads and validates raw data), 
+    Data Transformation (cleans and engineers features), Data Validation (runs quality checks), 
+    Data Aggregation (creates business summaries), and Data Output (exports to CSV/Excel/JSON).
+    Includes structured logging, error handling, and reproducible execution.
     """)
     
-    st.caption("**Tech Stack:** Python, Pandas, Pytest")
+    st.caption("**Tech Stack:** Python, Pandas, NumPy, OpenPyXL")
 
 with col2:
-    st.markdown("#### Technical Focus")
-    st.write("• Reproducible pipeline with clear folder structure")
-    st.write("• Data quality tests prevent bad data downstream")
-    st.write("• Logging enables debugging and audit trails")
-    st.write("• Software engineering practices for analytics")
+    st.markdown("#### Pipeline Stages")
+    st.write("• Stage 1: Data ingestion with schema validation")
+    st.write("• Stage 2: Cleaning, type fixes, feature engineering")
+    st.write("• Stage 3: Quality checks (completeness, uniqueness, consistency)")
+    st.write("• Stage 4: 5 aggregation views (daily, product, customer, regional, hourly)")
+    st.write("• Stage 5: Multi-format output with validation reports")
 
 if st.button("View Code - Analytics Pipeline", key="proj2"):
     st.markdown("[GitHub Repository](https://github.com/amit1820/end-to-end-analytics-pipeline)")
@@ -297,15 +304,16 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.markdown("#### Purpose")
     st.write("""
-    Practical data wrangling demonstration. Real-world data is rarely clean - this project 
-    addresses common issues encountered in BI work.
+    Practical data wrangling demonstration addressing common data quality issues encountered 
+    in BI work. Real-world data is rarely clean - this project tackles inconsistent formats, 
+    missing values, and messy records.
     """)
     
     st.markdown("#### Approach")
     st.write("""
     Multi-stage cleaning pipeline: date standardization with error handling, missing value 
     imputation based on business logic, duplicate detection and removal, aggregation to monthly KPIs. 
-    Transactional dataset with inconsistent date formats and missing values.
+    Processes transactional dataset with inconsistent date formats and missing values.
     """)
     
     st.caption("**Tech Stack:** Python, Pandas")
