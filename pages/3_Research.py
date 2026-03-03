@@ -219,23 +219,25 @@ st.title("Research & Applied Analytics")
 
 # Master's Thesis
 st.markdown("## Master's Thesis")
-st.markdown("### The Impact of Supply Chain ESG Performance on Stock Returns and Volatility")
+st.markdown("### Climate Policy Reversal and Global Equity Markets: A Cross-Country Event Study of US Environmental Deregulation (2025–2026)")
 st.caption("**Authors:** Amit Kumar, Sairam Vinay Shetty | Frankfurt School of Finance & Management")
+st.caption("**Supervisors:** Leonard Nils Grebe, Maria de la O Hervás Zurita")
 st.caption("**Status:** Ongoing | Expected Completion: May 2026")
 
 # Research Question
 st.markdown("#### Research Question")
 st.write("""
-Does supply chain ESG performance, specifically Scope 3 emissions and supplier human rights practices, 
-significantly influence stock returns and volatility for European listed firms? Traditional ESG research 
-focuses on direct operations (Scope 1 & 2), but supply chains often represent the largest sustainability 
-footprint and risk exposure.
+Did Trump's second-term climate policy rollback events (2025–2026) generate significantly different 
+stock market reactions across US, European, and Asian markets? And do these differences reflect 
+regional regulatory environments — particularly the divergence between US deregulation and Europe's 
+strengthening climate framework (CSRD, CSDDD, SFDR)?
 """)
 
 st.info("""
-**Key Hypothesis:** Companies with stronger supply chain ESG governance should exhibit risk-adjusted 
-outperformance due to reduced operational and reputational risks, and lower volatility from improved 
-stakeholder relationships and regulatory compliance.
+**Key Hypothesis:** Trump's climate policy rollback events generated significantly negative (positive) 
+abnormal returns for green (brown) firms in US markets, while European firms exhibited a different pattern — 
+green European firms were less negatively affected due to the EU's continued climate regulation commitment, 
+reflecting a "regulatory safe haven" effect.
 """)
 
 # Methodology
@@ -244,78 +246,117 @@ st.markdown("#### Methodology Overview")
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.markdown("#### Dependent Variables")
-    st.write("• Monthly stock returns (log returns)")
-    st.write("• Return volatility (rolling standard deviation)")
-    st.write("• Risk-adjusted returns (Sharpe ratio)")
+    st.markdown("#### Event Study Design")
+    st.write("• Market model with 250-day estimation window")
+    st.write("• Cumulative Abnormal Returns (CARs) across multiple event windows")
+    st.write("• Parametric t-test & non-parametric Wilcoxon signed-rank test")
+    st.write("• Cross-sectional OLS regression with regional interaction terms")
     
-    st.markdown("#### ESG Variables")
-    st.write("• Scope 3 emissions intensity")
-    st.write("• Supplier human rights scores")
-    st.write("• Supply chain transparency metrics")
-    st.write("• Supplier audit frequency")
+    st.markdown("#### Key Policy Events Analyzed")
+    st.write("• Jan 20, 2025 — Paris withdrawal, IRA freeze, energy emergency declaration")
+    st.write("• Mar 2025 — EPA endangerment finding reconsideration")
+    st.write("• Apr 2025 — Coal industry support, state climate policy attacks")
+    st.write("• Jun 2025 — IRA tax credit restrictions")
+    st.write("• Feb 11, 2026 — EPA formally rescinds endangerment finding")
 
 with col2:
-    st.markdown("#### Control Variables")
-    st.write("• Firm size (market cap, log)")
-    st.write("• Book-to-market ratio")
-    st.write("• Leverage (debt-to-equity)")
-    st.write("• Momentum (12-month returns)")
-    st.write("• Sector fixed effects")
+    st.markdown("#### Markets & Indices")
+    st.write("• **US:** S&P 500")
+    st.write("• **Europe:** DAX (Germany), FTSE 100 (UK), CAC 40 (France)")
+    st.write("• **Asia:** Nikkei 225 (Japan), Hang Seng (Hong Kong), KOSPI (South Korea)")
+    st.write("• **Benchmark:** MSCI World")
     
     st.markdown("#### Data Sources")
-    st.write("• Refinitiv ESG database")
-    st.write("• MSCI ESG ratings")
-    st.write("• Bloomberg terminal (pricing)")
-    st.write("• STOXX Europe 600 constituents")
+    st.write("• Bloomberg Terminal (daily index returns)")
+    st.write("• Refinitiv Eikon (ESG scores, green revenue share)")
+    st.write("• Kenneth French Data Library (Fama-French factors)")
+    st.write("• LSEG (green revenue classification)")
 
 # Analytical Approach
 st.markdown("#### Analytical Approach")
 
 st.write("""
-Panel regression analysis with firm and time fixed effects to control for unobserved heterogeneity. 
-Testing whether supply chain ESG metrics have explanatory power beyond traditional Fama-French factors 
-and direct ESG scores. Robustness checks include lagged variables to address reverse causality and 
-industry-specific subgroup analysis.
+Short-term event study methodology following the market model approach (Brown & Warner, 1985). For each 
+event date, abnormal returns are calculated as the difference between actual returns and expected returns 
+estimated via OLS regression over a 250-trading-day window ending 10 days before the event. CARs are 
+computed across multiple windows ([-1,+1], [-2,+2], [-5,+5]) and tested for statistical significance.
+""")
+
+st.write("""
+The cross-sectional regression tests whether regional regulatory environments moderate market reactions:
+""")
+
+st.code("""
+CAR = α + β₁(Green) + β₂(Europe) + β₃(Asia) + β₄(Green×Europe) + β₅(Green×Asia) + Controls + ε
+
+Where interaction terms β₄ and β₅ test whether green firms in Europe/Asia reacted 
+differently from US green firms — the novel contribution of this study.
+""", language=None)
+
+st.write("""
+Robustness checks include alternative factor models (Fama-French 3-factor and 5-factor), 
+varying event windows, sector sub-samples, and multi-event aggregation following 
+Conte Grand & D'Elia (2021).
 """)
 
 # Expected Contributions
 st.markdown("#### Expected Contributions")
 
 st.write("""
-This research contributes to the growing literature on ESG materiality by focusing specifically on 
-supply chain metrics - an understudied area despite representing 70-80% of most companies' total emissions. 
-Findings could inform investor due diligence, corporate sustainability strategies, and regulatory approaches 
-to Scope 3 reporting requirements.
+This research contributes novel insights at the intersection of climate policy and international financial 
+markets. While existing studies examine US markets in isolation (Koch & Schiereck, 2025) or focus solely 
+on the energy sector (Mukanjari & Sterner, 2024), this is the first study to analyze Trump's second-term 
+(2025–2026) climate rollbacks across three major economic regions simultaneously. The cross-market 
+comparison tests whether the same policy shock is priced differently across regulatory regimes — 
+contributing to the Bolton & Kacperczyk (2023) carbon premium literature and the Pástor & Veronesi (2013) 
+climate policy uncertainty framework.
 """)
 
+# Key Literature
+st.markdown("#### Key Literature")
+
+col1, col2 = st.columns(2, gap="large")
+
+with col1:
+    st.write("• **Koch & Schiereck (2025)** — Trump 2024 election impact on US stocks using green revenue share")
+    st.write("• **Ramelli et al. (2021)** — Trump 2016 election: carbon-intensive firms rewarded short-term")
+    st.write("• **Bolton & Kacperczyk (2023)** — Global carbon premium across 77 countries")
+    st.write("• **Mukanjari & Sterner (2024)** — Paris Agreement & Trump effects on energy stocks")
+
+with col2:
+    st.write("• **Pástor & Veronesi (2013)** — Political uncertainty and risk premia framework")
+    st.write("• **Wagner et al. (2023)** — IRA event study on green firm valuations")
+    st.write("• **Conte Grand & D'Elia (2021)** — 19 Trump first-term policy events, 49 US industries")
+    st.write("• **Yun et al. (2023)** — US elections affect global stock volatility for climate-exposed firms")
+
 # Research Interests
-st.markdown("#### Research Interests")
+st.markdown("## Research Interests")
 
 col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown("#### Quantitative Finance")
-    st.write("• Factor models")
-    st.write("• Risk attribution")
-    st.write("• Portfolio optimization")
+    st.write("• Event study methodology")
+    st.write("• Factor models & risk attribution")
+    st.write("• Climate policy uncertainty pricing")
 
 with col2:
-    st.markdown("#### Alternative Data")
-    st.write("• NLP on earnings calls")
-    st.write("• Satellite data for commodities")
-    st.write("• Sentiment analysis")
+    st.markdown("#### ESG & Sustainable Finance")
+    st.write("• Carbon premium dynamics")
+    st.write("• Regulatory divergence effects")
+    st.write("• Cross-market ESG transmission")
 
 with col3:
-    st.markdown("#### Operational Analytics")
-    st.write("• Trading desk optimization")
-    st.write("• Market microstructure")
-    st.write("• Execution algorithms")
+    st.markdown("#### Data-Driven Analytics")
+    st.write("• Financial econometrics in R & Python")
+    st.write("• Market microstructure analysis")
+    st.write("• Alternative data for alpha generation")
 
 st.write("""
-Open to research collaborations at the intersection of data science and financial markets.
+Open to research collaborations at the intersection of data science, climate finance, and international 
+financial markets.
 """)
 
 st.markdown("---")
 
-st.caption("Research updates and working papers will be available upon completion")
+st.caption("Research updates and working papers will be available upon completion. Target publication: JUMS (Junior Management Science) & Finance Research Letters.")
