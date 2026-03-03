@@ -225,7 +225,51 @@ in financial markets, enterprise operations, and startup ecosystems.
 
 st.markdown("---")
 
-# Project 1
+# ═══════════════════════════════════════════════════════════════
+# Project 1 - Current: Eurex Clearing AG (listed first as most recent)
+# ═══════════════════════════════════════════════════════════════
+st.markdown("## Derivatives Analytics & Market Intelligence Dashboards")
+st.caption("**Eurex Clearing AG (Deutsche Börse Group)** | Jan 2026 - Present")
+
+st.info("""
+**Current Role:** Intern — Business Analytics, Market & Liquidity Analytics. Designing dashboards, 
+automating reporting pipelines, and producing market intelligence across all Eurex derivatives products.
+""")
+
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    st.markdown("#### What I'm Building")
+    st.write("""
+    Designing Power BI dashboards tracking client performance across all Eurex derivatives products, 
+    enabling real-time self-service reporting for senior stakeholders. Automating 20+ hours/month of 
+    recurring tasks using Python, VBA, and SQL to extract derivatives data from MicroStrategy and 
+    StatistiX — eliminating manual preparation for 10+ product presentations.
+    """)
+
+    st.markdown("#### Market Intelligence")
+    st.write("""
+    Producing monthly market analytics newsletters synthesizing trading volumes, open interest trends, 
+    and liquidity metrics — published on the Eurex website as a primary market intelligence resource. 
+    Supporting 10+ ad-hoc analytics requests/month for Market Maker schemes across equity and fixed 
+    income derivatives. Collaborating with the Sales Intelligence team to define KPI frameworks and 
+    reporting requirements for derivatives performance tracking.
+    """)
+
+    st.caption("**Tech Stack:** Power BI, Python, VBA, SQL, MicroStrategy, StatistiX")
+
+with col2:
+    st.markdown("#### Impact")
+    st.metric("Automation", "20+ hrs/month", "Recurring tasks eliminated")
+    st.metric("Presentations", "10+", "Product decks automated")
+    st.metric("Ad-hoc Requests", "10+/month", "Market Maker schemes")
+    st.metric("Newsletter", "Monthly", "Published on Eurex website")
+
+st.markdown("---")
+
+# ═══════════════════════════════════════════════════════════════
+# Project 2: Computer Vision - Deutsche Börse AG
+# ═══════════════════════════════════════════════════════════════
 st.markdown("## Computer Vision-Based Document Verification")
 st.caption("**Deutsche Börse AG** | July 2025 - Dec 2025")
 
@@ -235,27 +279,28 @@ with col1:
     st.markdown("#### Context")
     st.write("""
     Compliance team manually verified 400+ regulatory PDFs each month for stamps and signatures. 
-    Manual process took 2-3 minutes per document and was prone to visual fatigue errors.
+    Manual process was time-consuming and prone to visual fatigue errors, creating compliance risk.
     """)
-    
+
     st.markdown("#### Solution")
     st.write("""
-    Developed computer vision-based verification tool using Python with OpenCV for stamp detection 
-    and PyMuPDF for document processing. System automatically detects required elements and flags 
-    exceptions for manual review.
+    Developed computer vision-based verification tool using Python with OpenCV for stamp and signature 
+    detection and PyMuPDF for document processing. System automatically scans each PDF, detects required 
+    compliance elements, and flags exceptions for manual review.
     """)
-    
+
     st.caption("**Tech Stack:** Python, OpenCV, PyMuPDF")
 
 with col2:
     st.markdown("#### Impact")
-    st.metric("Documents/Month", "400+", "Automated")
-    st.metric("Time Saved", "20+ hrs/month", "50%+ reduction")
-    st.metric("Error Reduction", "50%+", "Manual errors")
+    st.metric("Documents/Month", "400+", "Automated scanning")
+    st.metric("Exception Flagging", "Automated", "Compliance risk reduced")
 
 st.markdown("---")
 
-# Project 2
+# ═══════════════════════════════════════════════════════════════
+# Project 3: Power Automate Workflows - Deutsche Börse AG
+# ═══════════════════════════════════════════════════════════════
 st.markdown("## Power Automate Workflows for Cash Market Operations")
 st.caption("**Deutsche Börse AG** | July 2025 - Dec 2025")
 
@@ -267,25 +312,29 @@ with col1:
     Cash market operations involved manual file processing and data entry across multiple systems. 
     Repetitive tasks consumed significant analyst time and introduced manual errors.
     """)
-    
+
     st.markdown("#### Solution")
     st.write("""
-    Engineered rule-based automation workflows using Power Automate with AI Builder for content recognition. 
-    Automated reconciliation of 500K+ rows/month using Power Query and VBA, resolving inconsistent date 
-    formats and field mappings across upstream trading systems.
+    Engineered rule-based automation workflows using Power Automate with AI Builder for content recognition, 
+    saving 20+ hours/month and reducing manual errors by 50%+ across cash market operations. Automated 
+    reconciliation of 500K+ rows/month using Power Query and VBA, achieving 30% reduction in data defects 
+    after resolving inconsistent date formats and field mappings.
     """)
-    
+
     st.caption("**Tech Stack:** Power Automate, AI Builder, Power Query, VBA")
 
 with col2:
     st.markdown("#### Impact")
     st.metric("Rows Reconciled", "500K+/month", "Automated")
     st.metric("Time Saved", "20+ hrs/month", "Workflow automation")
-    st.metric("Data Defects", "30% reduction", "Quality improvement")
+    st.metric("Manual Errors", "50%+ reduction", "Quality improvement")
+    st.metric("Data Defects", "30% reduction", "Field mapping fixes")
 
 st.markdown("---")
 
-# Project 3
+# ═══════════════════════════════════════════════════════════════
+# Project 4: Real-Time Trading Dashboards - Deutsche Börse AG
+# ═══════════════════════════════════════════════════════════════
 st.markdown("## Real-Time Trading Analytics Dashboards")
 st.caption("**Deutsche Börse AG** | July 2025 - Dec 2025")
 
@@ -297,25 +346,27 @@ with col1:
     Traders relied on static reports and ad-hoc data requests for analytics. No unified view of 
     trading KPIs led to information fragmentation and delayed decision-making.
     """)
-    
+
     st.markdown("#### Solution")
     st.write("""
     Designed and deployed live Power BI dashboards integrating Scala and Apache Zeppelin data sources 
     for real-time trading analytics. Dashboards replaced ad-hoc report requests and provide traders 
-    with self-service access to key metrics.
+    with self-service access to key metrics — dashboards traders check daily.
     """)
-    
+
     st.caption("**Tech Stack:** Power BI, Apache Zeppelin, Scala, SQL")
 
 with col2:
     st.markdown("#### Impact")
-    st.metric("Adoption Rate", "Daily usage", "Traders check dashboards")
+    st.metric("Adoption", "Daily usage", "Traders check dashboards daily")
     st.metric("Ad-hoc Requests", "Significant reduction", "Self-service analytics")
 
 st.markdown("---")
 
-# Project 4
-st.markdown("## Power BI Dashboards for Project KPI Tracking")
+# ═══════════════════════════════════════════════════════════════
+# Project 5: Arcadis - HS2
+# ═══════════════════════════════════════════════════════════════
+st.markdown("## Power BI Dashboards & Data Automation for UK HS2 Rail Program")
 st.caption("**Arcadis** | Aug 2022 - July 2024")
 
 col1, col2 = st.columns([2, 1])
@@ -323,27 +374,34 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.markdown("#### Context")
     st.write("""
-    Project teams needed real-time visibility into KPIs and resource allocation. 
-    Manual reporting processes created delays in project tracking and decision-making.
+    HS2 — the UK's £100B+ national rail infrastructure program — needed real-time visibility into 
+    KPIs and resource allocation across 15+ work packages. Manual reporting processes created delays 
+    in project tracking and cross-functional decision-making.
     """)
-    
+
     st.markdown("#### Solution")
     st.write("""
-    Built Power BI dashboards and Power Apps for real-time project KPI tracking and resource management. 
-    Automated data validation and transformation pipelines using Python, VBA, and Dynamo.
+    Built Power BI dashboards and Power Apps for real-time KPI tracking and resource management across 
+    15+ work packages. Automated data validation and transformation pipelines using Python, Dynamo, and 
+    VBA, reducing manual processing time by 60%. Led cross-functional data automation initiatives across 
+    HS2 engineering and project management teams, reducing manual approval time by 2 days per work package.
     """)
-    
-    st.caption("**Tech Stack:** Power BI, Power Apps, Python, VBA")
+
+    st.caption("**Tech Stack:** Power BI, Power Apps, Python, Dynamo, VBA")
 
 with col2:
     st.markdown("#### Impact")
-    st.metric("Processing Time", "60% reduction", "Manual work eliminated")
-    st.metric("Approval Time", "2 days saved", "Per project")
+    st.metric("Work Packages", "15+", "Real-time KPI tracking")
+    st.metric("Processing Time", "60% reduction", "Automation pipelines")
+    st.metric("Approval Time", "2 days saved", "Per work package")
+    st.metric("Program Scale", "£100B+", "UK national infrastructure")
 
 st.markdown("---")
 
-# Project 5 - NEW: Alliant Advisory
-st.markdown("## Excel-Based Analytics for Cost Segregation")
+# ═══════════════════════════════════════════════════════════════
+# Project 6: Alliant Advisory
+# ═══════════════════════════════════════════════════════════════
+st.markdown("## Financial Data Analytics for Cost Segregation")
 st.caption("**Alliant Advisory** | Feb 2022 - July 2022")
 
 col1, col2 = st.columns([2, 1])
@@ -351,82 +409,55 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.markdown("#### Context")
     st.write("""
-    Cost segregation projects across 12+ clients required consistent analysis of large financial datasets. 
-    Manual reporting processes created inefficiencies and inconsistencies in deliverables.
+    Cost segregation projects for US tax advisory required consistent analysis of large financial 
+    datasets across multiple real estate client engagements. Manual reporting processes created 
+    inefficiencies and inconsistencies in deliverables.
     """)
-    
+
     st.markdown("#### Solution")
     st.write("""
-    Analyzed and structured large financial datasets for cost segregation analysis. Created standardized 
-    reporting templates and automated workflows using Excel and VBA. Developed analytics tools and 
-    dashboards to track project performance metrics.
+    Analyzed large financial datasets for cost segregation across 5+ real estate client projects, 
+    supporting US tax advisory decisions. Created standardized reporting templates and automated 
+    workflows, reducing turnaround time by 28%.
     """)
-    
+
     st.caption("**Tech Stack:** Excel, VBA, Python")
 
 with col2:
     st.markdown("#### Impact")
-    st.metric("Projects", "12+ clients", "Served")
+    st.metric("Client Projects", "5+", "Real estate cost segregation")
     st.metric("Turnaround Time", "28% reduction", "Process improvement")
 
 st.markdown("---")
 
-# Project 6 - NEW: Atal Incubation Centre
-st.markdown("## MySQL Database & Performance Dashboards")
-st.caption("**Atal Incubation Centre - Bihar Vidyapith** | Jan 2021 - Jan 2022")
+# ═══════════════════════════════════════════════════════════════
+# Project 7: Atal Incubation Centre
+# ═══════════════════════════════════════════════════════════════
+st.markdown("## MySQL Database & Screening Workflows for Startup Incubator")
+st.caption("**Atal Incubation Centre — Bihar Vidyapith** | Jan 2021 - Jan 2022")
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown("#### Context")
     st.write("""
-    Startup incubation program needed centralized database for tracking 2,400+ founders and their 
+    Startup incubation program needed a centralized database for tracking 2,400+ founders and their 
     applications. Manual processes led to data inconsistencies and inefficient screening workflows.
     """)
-    
+
     st.markdown("#### Solution")
     st.write("""
-    Built and maintained MySQL databases of 2,400+ founders, improving data accuracy from 92% to 99%. 
-    Streamlined SQL-based screening workflows, shortening startup evaluation cycles by 33%. Designed 
-    performance tracking dashboards to monitor portfolio metrics.
+    Built and maintained MySQL databases of 2,400+ founders, boosting data accuracy from 92% to 99%. 
+    Streamlined SQL-based screening workflows, shortening startup evaluation cycles by 33%.
     """)
-    
-    st.caption("**Tech Stack:** MySQL, SQL, Dashboard Tools")
+
+    st.caption("**Tech Stack:** MySQL, SQL")
 
 with col2:
     st.markdown("#### Impact")
-    st.metric("Founders Tracked", "2,400+", "Database")
+    st.metric("Founders Tracked", "2,400+", "Centralized database")
     st.metric("Data Accuracy", "92% → 99%", "Quality improvement")
-    st.metric("Evaluation Time", "33% faster", "Process efficiency")
-
-st.markdown("---")
-
-# Project 7 - Current
-st.markdown("## Power BI Dashboard for Commercial Sales Team")
-st.caption("**Eurex (Deutsche Börse Group)** | Jan 2026 - Present")
-
-st.info("""
-**Current Project:** Designing and deploying Power BI dashboard to track client performance across 
-derivatives products. Automating recurring BAU tasks using Python and VBA, including Most Liquid 
-Products lists and interactive chart updates. Extracting and structuring trading data using SQL 
-across TRF, FTSE 100, and ESG segments.
-""")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.markdown("#### Approach")
-    st.write("• Replacing static Excel reports with interactive Power BI dashboards")
-    st.write("• Automating manual data extraction from StatistiX database")
-    st.write("• Building SQL queries for derivatives product data")
-    st.write("• Creating recurring task automation with Python and VBA")
-
-with col2:
-    st.markdown("#### Focus Areas")
-    st.write("• Client performance tracking across derivatives products")
-    st.write("• Most Liquid Products lists and interactive charts")
-    st.write("• Product presentations for TRF, FTSE 100, ESG segments")
-    st.write("• Monthly market analytics newsletters")
+    st.metric("Evaluation Cycles", "33% faster", "SQL workflow optimization")
 
 st.markdown("---")
 
