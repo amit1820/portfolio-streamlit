@@ -248,12 +248,12 @@ with col1:
 
 with col2:
     st.markdown("# Amit Kumar")
-    st.markdown("## Business Intelligence & Analytics")
+    st.markdown("## Data & Analytics | BI · Pipelines · Automation")
     st.markdown("""
-    Business Intelligence Analyst with 3+ years of experience designing dashboards, automating 
-    reporting pipelines, and delivering data-driven insights across financial markets and enterprise 
-    operations. Strong expertise in Power BI, SQL, Python, with proven experience translating business 
-    requirements into scalable BI solutions.
+    Business Intelligence and Data Engineering professional with 3+ years of experience 
+    delivering Power BI dashboards, automated data pipelines, and analytics solutions 
+    across financial markets. Currently at Eurex Clearing AG (Deutsche Börse Group) 
+    supporting derivatives analytics and market intelligence.
     """)
     st.markdown("#### Core Skills")
     st.write("Power BI | SQL | Python | Excel | ETL | Data Visualization | Automation")
