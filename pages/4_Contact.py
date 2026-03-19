@@ -216,12 +216,7 @@ a:hover {
 """, unsafe_allow_html=True)
 
 st.title("Contact")
-st.markdown("### Get in Touch")
 
-st.write("""
-Open to Business Intelligence, Analytics, and Data Analyst roles, consulting projects, 
-and research collaborations. Particularly interested in financial markets analytics, 
-automation, and quantitative analysis.
 """)
 
 st.markdown("---")
