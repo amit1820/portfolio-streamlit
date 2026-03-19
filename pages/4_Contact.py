@@ -217,8 +217,6 @@ a:hover {
 
 st.title("Contact")
 
-
-
 st.markdown("---")
 
 # Contact Information
@@ -254,7 +252,7 @@ st.markdown("## Current Status")
 
 st.info("""
 Currently pursuing **Master of Science in Management** at Frankfurt School of Finance & Management 
-(Expected graduation: August 2026). Seeking full-time BI/Analytics roles.
+(Expected graduation: August 2026). Seeking BI Analyst and Data Engineer roles in Germany from September 2026.
 """)
 
 st.markdown("---")
