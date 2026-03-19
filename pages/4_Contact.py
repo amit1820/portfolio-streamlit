@@ -252,7 +252,7 @@ st.markdown("## Current Status")
 
 st.info("""
 Currently pursuing **Master of Science in Management** at Frankfurt School of Finance & Management 
-(Expected graduation: August 2026). Seeking BI Analyst and Data Engineer roles in Germany from September 2026.
+(Expected graduation: August 2026). Seeking BI Analyst and Data Engineer roles in Germany.
 """)
 
 st.markdown("---")
