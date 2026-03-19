@@ -6,7 +6,7 @@ from pathlib import Path
 st.set_page_config(
     page_title="Amit Kumar — BI & Analytics", 
     layout="wide", 
-    page_icon= ASSETS_DIR / "portfolio.png",
+    page_icon="portfolio.png",
 )
 
 # Paths
