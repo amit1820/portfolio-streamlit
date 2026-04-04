@@ -3,7 +3,6 @@ import streamlit as st
 
 st.set_page_config(page_title="Industry Case Studies", layout="wide", page_icon="💼")
 
-# Top Navigation - centered
 nav_cols = st.columns(5)
 with nav_cols[0]:
     if st.button("Home", key="nav0", use_container_width=True):
@@ -23,255 +22,159 @@ with nav_cols[4]:
 
 st.markdown("<div style='margin: 1rem 0;'></div>", unsafe_allow_html=True)
 
-# Custom CSS
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;600;700&display=swap');
-
-/* Hide sidebar completely */
-[data-testid="stSidebar"] {
-    display: none;
-}
-
-section[data-testid="stSidebarNav"] {
-    display: none;
-}
-
-/* Remove default padding */
-.main > div {
-    padding-top: 0rem;
-}
-
-/* Main background */
-.main {
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-}
-
-.stApp {
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-}
-
-/* Hide Streamlit branding */
+[data-testid="stSidebar"] { display: none; }
+section[data-testid="stSidebarNav"] { display: none; }
+.main > div { padding-top: 0rem; }
+.main { background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); }
+.stApp { background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); }
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
-
-/* Typography */
-div[data-testid="stMarkdownContainer"] h1 {
-    font-family: 'Space Mono', monospace;
-    color: #f4c430;
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -1px;
-}
-
-div[data-testid="stMarkdownContainer"] h2 {
-    font-family: 'Space Mono', monospace;
-    color: #f4c430;
-    font-size: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    letter-spacing: -0.5px;
-}
-
-div[data-testid="stMarkdownContainer"] h3 {
-    font-family: 'Inter', sans-serif;
-    color: #64ffda;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-div[data-testid="stMarkdownContainer"] h4 {
-    font-family: 'Inter', sans-serif;
-    color: #ffd700;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-top: 1rem;
-}
-
-div[data-testid="stMarkdownContainer"] p {
-    font-family: 'DM Sans', sans-serif;
-    color: #ccd6f6;
-    line-height: 1.8;
-    font-size: 1.05rem;
-}
-
-/* Metric cards */
-div[data-testid="stMetric"] {
-    background: linear-gradient(135deg, rgba(244, 196, 48, 0.08) 0%, rgba(20, 27, 61, 0.4) 100%);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(244, 196, 48, 0.2);
-}
-
-div[data-testid="stMetricLabel"] {
-    font-family: 'Space Mono', monospace;
-    color: #f4c430 !important;
-    font-size: 0.9rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-div[data-testid="stMetricValue"] {
-    font-family: 'Space Mono', monospace;
-    color: #ffffff !important;
-    font-size: 2rem !important;
-    font-weight: 700 !important;
-}
-
-div[data-testid="stMetricDelta"] {
-    font-family: 'DM Sans', sans-serif;
-    color: #a8b2d1 !important;
-    font-size: 0.85rem !important;
-}
-
-/* Download button */
-.stDownloadButton button {
-    background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%);
-    color: #0a0e27 !important;
-    font-family: 'Space Mono', monospace;
-    font-weight: 700 !important;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.stDownloadButton button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(244, 196, 48, 0.4);
-    background: #ffd700;
-}
-
-.stDownloadButton button p {
-    color: #0a0e27 !important;
-    font-weight: 700 !important;
-}
-
-/* Navigation buttons - stylish version */
-.stButton button {
-    background: transparent;
-    color: #ccd6f6;
-    border: none;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 0.6rem 1.5rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.stButton button:hover {
-    color: #f4c430;
-    background: rgba(244, 196, 48, 0.1);
-    transform: translateY(-2px);
-}
-
-.stButton button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%) scaleX(0);
-    width: 80%;
-    height: 2px;
-    background: #f4c430;
-    transition: transform 0.3s ease;
-}
-
-.stButton button:hover::after {
-    transform: translateX(-50%) scaleX(1);
-}
-
-/* Info box */
-div[data-testid="stAlert"] {
-    background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(20, 27, 61, 0.3) 100%);
-    border: 1px solid rgba(244, 196, 48, 0.3);
-    border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
-}
-
-/* Caption */
-.stCaption {
-    font-family: 'Inter', sans-serif;
-    color: #8892b0 !important;
-    font-size: 0.9rem !important;
-}
-
-/* Links */
-a {
-    color: #64ffda;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #ffd700;
-    text-decoration: underline;
-}
+div[data-testid="stMarkdownContainer"] h1 { font-family: 'Space Mono', monospace; color: #f4c430; font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+div[data-testid="stMarkdownContainer"] h2 { font-family: 'Space Mono', monospace; color: #f4c430; font-size: 2rem; margin-top: 2rem; margin-bottom: 1rem; letter-spacing: -0.5px; }
+div[data-testid="stMarkdownContainer"] h3 { font-family: 'Inter', sans-serif; color: #64ffda; font-size: 1.4rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+div[data-testid="stMarkdownContainer"] h4 { font-family: 'Inter', sans-serif; color: #ffd700; font-size: 1.1rem; font-weight: 600; margin-top: 1rem; }
+div[data-testid="stMarkdownContainer"] p { font-family: 'DM Sans', sans-serif; color: #ccd6f6; line-height: 1.8; font-size: 1.05rem; }
+div[data-testid="stMetric"] { background: linear-gradient(135deg, rgba(244, 196, 48, 0.08) 0%, rgba(20, 27, 61, 0.4) 100%); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(244, 196, 48, 0.2); }
+div[data-testid="stMetricLabel"] { font-family: 'Space Mono', monospace; color: #f4c430 !important; font-size: 0.9rem !important; font-weight: 700 !important; text-transform: uppercase; letter-spacing: 1px; }
+div[data-testid="stMetricValue"] { font-family: 'Space Mono', monospace; color: #ffffff !important; font-size: 2rem !important; font-weight: 700 !important; }
+div[data-testid="stMetricDelta"] { font-family: 'DM Sans', sans-serif; color: #a8b2d1 !important; font-size: 0.85rem !important; }
+.stDownloadButton button { background: linear-gradient(135deg, #f4c430 0%, #ffd700 100%); color: #0a0e27 !important; font-family: 'Space Mono', monospace; font-weight: 700 !important; border: none; padding: 0.75rem 2rem; border-radius: 8px; }
+.stButton button { background: transparent; color: #ccd6f6; border: none; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 500; padding: 0.6rem 1.5rem; border-radius: 6px; transition: all 0.3s ease; }
+.stButton button:hover { color: #f4c430; background: rgba(244, 196, 48, 0.1); }
+div[data-testid="stAlert"] { background: linear-gradient(135deg, rgba(244, 196, 48, 0.1) 0%, rgba(20, 27, 61, 0.3) 100%); border: 1px solid rgba(244, 196, 48, 0.3); border-radius: 12px; font-family: 'DM Sans', sans-serif; }
+.stCaption { font-family: 'Inter', sans-serif; color: #8892b0 !important; font-size: 0.9rem !important; }
+a { color: #64ffda; text-decoration: none; }
+a:hover { color: #ffd700; text-decoration: underline; }
 </style>
 """, unsafe_allow_html=True)
 
 # Page Title
 st.title("Industry Case Studies")
-st.markdown("### Professional work across Deutsche Börse Group, Arcadis, Alliant Advisory, and Atal Incubation Centre")
+st.markdown("### Production analytics solutions deployed across Deutsche Börse Group, Arcadis, and more")
 st.write("""
-Production analytics solutions, automation pipelines, and real-time dashboards deployed 
-in financial markets, enterprise operations, and startup ecosystems.
+Real-world dashboards, automation pipelines, statistical models, and data infrastructure 
+deployed in financial markets, enterprise operations, and startup ecosystems.
 """)
 
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 1 - Current: Eurex Clearing AG (listed first as most recent)
+# EUREX — Project 1: Derivatives Analytics & Dashboards
 # ═══════════════════════════════════════════════════════════════
-st.markdown("## Derivatives Analytics & Market Intelligence Dashboards")
+st.markdown("## Derivatives Analytics & Market Intelligence")
 st.caption("**Eurex Clearing AG (Deutsche Börse Group)** | Jan 2026 - Present")
 
 st.info("""
-**Current Role:** Intern — Business Analytics, Market & Liquidity Analytics. Designing dashboards, 
-automating reporting pipelines, and producing market intelligence across all Eurex derivatives products.
+**Current Role:** Business Analytics, Market & Liquidity Analytics (Internship). Designing dashboards 
+for 200+ clearing members, developing statistical models, building Databricks data infrastructure, 
+and producing published market intelligence.
 """)
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    st.markdown("#### What I'm Building")
+    st.markdown("#### Interactive Power BI Dashboards")
     st.write("""
-    Designing Power BI dashboards tracking client performance across all Eurex derivatives products, 
-    enabling real-time self-service reporting for senior stakeholders. Automating 20+ hours/month of 
-    recurring tasks using Python, VBA, and SQL to extract derivatives data from MicroStrategy and 
-    StatistiX — eliminating manual preparation for 10+ product presentations.
+    Design interactive Power BI dashboards for 200+ clearing members across 22 countries, 
+    including a monthly derivatives performance report for the Eurex sales team. Replacing 
+    static Excel processes with scalable self-service analytics. Collaborate with Sales Intelligence 
+    to define KPI frameworks for derivatives performance tracking across Equity Index and Fixed Income 
+    products spanning 10+ product categories.
     """)
 
-    st.markdown("#### Market Intelligence")
+    st.markdown("#### Market Intelligence Reports")
     st.write("""
-    Producing monthly market analytics newsletters synthesizing trading volumes, open interest trends, 
-    and liquidity metrics — published on the Eurex website as a primary market intelligence resource. 
-    Supporting 10+ ad-hoc analytics requests/month for Market Maker schemes across equity and fixed 
-    income derivatives. Collaborating with the Sales Intelligence team to define KPI frameworks and 
-    reporting requirements for derivatives performance tracking.
+    Produce monthly market intelligence reports analyzing trading volumes, open interest trends, 
+    and liquidity metrics across all Eurex product categories — published on the Eurex website 
+    as the primary market intelligence resource for external stakeholders.
     """)
 
-    st.caption("**Tech Stack:** Power BI, Python, VBA, SQL, MicroStrategy, StatistiX")
+    st.caption("**Tech Stack:** Power BI (DAX, Power Query), Python, VBA, SQL, MicroStrategy, StatistiX")
 
 with col2:
     st.markdown("#### Impact")
-    st.metric("Automation", "20+ hrs/month", "Recurring tasks eliminated")
-    st.metric("Presentations", "10+", "Product decks automated")
-    st.metric("Ad-hoc Requests", "10+/month", "Market Maker schemes")
+    st.metric("Clearing Members", "200+", "Across 22 countries")
+    st.metric("Product Categories", "10+", "Equity, Fixed Income, ESG")
     st.metric("Newsletter", "Monthly", "Published on Eurex website")
 
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 2: Computer Vision - Deutsche Börse AG
+# EUREX — Project 2: Statistical Outlier Detection
+# ═══════════════════════════════════════════════════════════════
+st.markdown("## Statistical Outlier Detection for Collateral Fee Analysis")
+st.caption("**Eurex Clearing AG (Deutsche Börse Group)** | Jan 2026 - Present")
+
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    st.markdown("#### Context")
+    st.write("""
+    Eurex Clearing manages collateral fees (securities collateral and add-on fees) across 200+ 
+    clearing members. Identifying which members have anomalous fee patterns — and understanding 
+    the key drivers behind fee changes — required a systematic, data-driven approach beyond 
+    manual inspection.
+    """)
+
+    st.markdown("#### Solution")
+    st.write("""
+    Developing a Python-based statistical outlier detection model using SciPy and Statsmodels 
+    on live HDFS data. The model analyzes securities collateral and add-on fee patterns across 
+    weekly, monthly, and yearly periods to detect anomalous trends and identify key drivers 
+    of fee variability across clearing members.
+    """)
+
+    st.caption("**Tech Stack:** Python (SciPy, Statsmodels), Apache Zeppelin, HDFS")
+
+with col2:
+    st.markdown("#### Impact")
+    st.metric("Members Analyzed", "200+", "All Eurex clearing members")
+    st.metric("Fee Types", "2", "Securities collateral & add-on")
+    st.metric("Periods", "3", "Weekly, monthly, yearly")
+
+st.markdown("---")
+
+# ═══════════════════════════════════════════════════════════════
+# EUREX — Project 3: Databricks Data Models
+# ═══════════════════════════════════════════════════════════════
+st.markdown("## Centralized Data Models on Databricks")
+st.caption("**Eurex Clearing AG (Deutsche Börse Group)** | Jan 2026 - Present")
+
+col1, col2 = st.columns([2, 1])
+
+with col1:
+    st.markdown("#### Context")
+    st.write("""
+    The Market & Liquidity Analytics department relied on multiple disparate data sources 
+    for reporting and analytics. BI developers had to query different systems separately, 
+    creating inconsistencies and inefficiencies in the analytics workflow.
+    """)
+
+    st.markdown("#### Solution")
+    st.write("""
+    Building centralized data models on Databricks as a single-source analytics layer for the 
+    department. Consolidating multiple data sources into a unified platform, enabling BI developers 
+    to connect directly instead of querying multiple systems — improving data consistency, 
+    reducing query complexity, and accelerating dashboard development.
+    """)
+
+    st.caption("**Tech Stack:** Databricks, SQL, Data Modeling")
+
+with col2:
+    st.markdown("#### Impact")
+    st.metric("Data Sources", "Multiple", "Consolidated into one layer")
+    st.metric("Outcome", "Single-source", "Analytics layer for BI")
+
+st.markdown("---")
+
+# ═══════════════════════════════════════════════════════════════
+# DB — Project 4: Computer Vision
 # ═══════════════════════════════════════════════════════════════
 st.markdown("## Computer Vision-Based Document Verification")
-st.caption("**Deutsche Börse AG** | July 2025 - Dec 2025")
+st.caption("**Deutsche Börse AG, Cash Market Services (Working Student)** | July 2025 - Dec 2025")
 
 col1, col2 = st.columns([2, 1])
 
@@ -299,10 +202,10 @@ with col2:
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 3: Power Automate Workflows - Deutsche Börse AG
+# DB — Project 5: Power Automate Workflows
 # ═══════════════════════════════════════════════════════════════
 st.markdown("## Power Automate Workflows for Cash Market Operations")
-st.caption("**Deutsche Börse AG** | July 2025 - Dec 2025")
+st.caption("**Deutsche Börse AG, Cash Market Services (Working Student)** | July 2025 - Dec 2025")
 
 col1, col2 = st.columns([2, 1])
 
@@ -333,10 +236,10 @@ with col2:
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 4: Real-Time Trading Dashboards - Deutsche Börse AG
+# DB — Project 6: Real-Time Trading Dashboards
 # ═══════════════════════════════════════════════════════════════
 st.markdown("## Real-Time Trading Analytics Dashboards")
-st.caption("**Deutsche Börse AG** | July 2025 - Dec 2025")
+st.caption("**Deutsche Börse AG, Cash Market Services (Working Student)** | July 2025 - Dec 2025")
 
 col1, col2 = st.columns([2, 1])
 
@@ -349,8 +252,8 @@ with col1:
 
     st.markdown("#### Solution")
     st.write("""
-    Designed and deployed live Power BI dashboards integrating Scala and Apache Zeppelin data sources 
-    for real-time trading analytics. Dashboards replaced ad-hoc report requests and provide traders 
+    Designed and deployed real-time Power BI dashboards integrating Scala and Apache Zeppelin data sources 
+    for live trading analytics. Dashboards replaced ad-hoc report requests and provide traders 
     with self-service access to key metrics — dashboards traders check daily.
     """)
 
@@ -364,17 +267,17 @@ with col2:
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 5: Arcadis - HS2
+# Arcadis — HS2
 # ═══════════════════════════════════════════════════════════════
-st.markdown("## Power BI Dashboards & Data Automation for UK HS2 Rail Program")
-st.caption("**Arcadis** | Aug 2022 - July 2024")
+st.markdown("## Power BI Dashboards & Data Automation for UK HS2 Rail Programme")
+st.caption("**Arcadis — Data & Analytics Consultant, BIM Analytics** | Aug 2022 - July 2024")
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown("#### Context")
     st.write("""
-    HS2 — the UK's £100B+ national rail infrastructure program — needed real-time visibility into 
+    HS2 — the UK's £100B+ national rail infrastructure programme — needed real-time visibility into 
     KPIs and resource allocation across 15+ work packages. Manual reporting processes created delays 
     in project tracking and cross-functional decision-making.
     """)
@@ -384,7 +287,7 @@ with col1:
     Built Power BI dashboards and Power Apps for real-time KPI tracking and resource management across 
     15+ work packages. Automated data validation and transformation pipelines using Python, Dynamo, and 
     VBA, reducing manual processing time by 60%. Led cross-functional data automation initiatives across 
-    HS2 engineering and project management teams, reducing manual approval time by 2 days per work package.
+    engineering and project management teams, reducing manual approval time by 2 days per work package.
     """)
 
     st.caption("**Tech Stack:** Power BI, Power Apps, Python, Dynamo, VBA")
@@ -394,15 +297,15 @@ with col2:
     st.metric("Work Packages", "15+", "Real-time KPI tracking")
     st.metric("Processing Time", "60% reduction", "Automation pipelines")
     st.metric("Approval Time", "2 days saved", "Per work package")
-    st.metric("Program Scale", "£100B+", "UK national infrastructure")
+    st.metric("Programme Scale", "£100B+", "UK national infrastructure")
 
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 6: Alliant Advisory
+# Alliant Advisory
 # ═══════════════════════════════════════════════════════════════
 st.markdown("## Financial Data Analytics for Cost Segregation")
-st.caption("**Alliant Advisory** | Feb 2022 - July 2022")
+st.caption("**Alliant Advisory — Associate, Cost Segregation Analytics** | Feb 2022 - July 2022")
 
 col1, col2 = st.columns([2, 1])
 
@@ -431,23 +334,23 @@ with col2:
 st.markdown("---")
 
 # ═══════════════════════════════════════════════════════════════
-# Project 7: Atal Incubation Centre
+# Atal Incubation Centre
 # ═══════════════════════════════════════════════════════════════
 st.markdown("## MySQL Database & Screening Workflows for Startup Incubator")
-st.caption("**Atal Incubation Centre — Bihar Vidyapith** | Jan 2021 - Jan 2022")
+st.caption("**Atal Incubation Centre — Program Associate, Entrepreneurship Cell (Internship)** | Jan 2021 - Jan 2022")
 
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.markdown("#### Context")
     st.write("""
-    Startup incubation program needed a centralized database for tracking 2,400+ founders and their 
+    Startup incubation programme needed a centralized database for tracking 2,400+ founders and their 
     applications. Manual processes led to data inconsistencies and inefficient screening workflows.
     """)
 
     st.markdown("#### Solution")
     st.write("""
-    Built and maintained MySQL databases of 2,400+ founders, boosting data accuracy from 92% to 99%. 
+    Built and maintained MySQL databases of 2,400+ founders, improving data accuracy from 92% to 99%. 
     Streamlined SQL-based screening workflows, shortening startup evaluation cycles by 33%.
     """)
 
@@ -461,4 +364,4 @@ with col2:
 
 st.markdown("---")
 
-st.caption("All projects deployed in production across financial markets, enterprise operations, and startup ecosystems")
+st.caption("All projects deployed in production across financial markets, enterprise operations, and startup ecosystems | Updated April 2026")
