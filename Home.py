@@ -98,7 +98,7 @@ with col2:
     st.markdown("#### Core Skills")
     st.write("Power BI (PL-300) | SQL | Python | Databricks | R | Excel | ETL | Automation")
     st.markdown("#### Certifications")
-    st.write("PL-300 Power BI Data Analyst Assocaite | Databricks Certified Data Engineer Associate | AZ-900 Azure | AB-730 AI Business Professional")
+    st.write("PL-300 Power BI Data Analyst Associate | Databricks Certified Data Engineer Associate | AZ-900 Azure | AB-730 AI Business Professional")
     st.markdown("#### Contact")
     st.write("📍 Frankfurt am Main, Germany — Open to relocation anywhere in Germany")
     st.write("✉️ amit.kumar.analytics.eu@gmail.com")
