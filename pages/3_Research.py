@@ -59,26 +59,24 @@ st.markdown("## Master's Thesis")
 st.markdown("### Climate Policy Reversal and Global Equity Markets: A Cross-Country Event Study of US Environmental Deregulation (2025–2026)")
 st.caption("**Authors:** Amit Kumar, Sairam Vinay Shetty | Frankfurt School of Finance & Management")
 st.caption("**Supervisors:** Professor Leonard Nils Grebe (First Assessor), Professor Maria de la O Hervás Zurita (Second Assessor)")
-st.caption("**Status:** Final draft completed | Submission: May 2026")
-st.caption("**Target publication:** JUMS (Junior Management Science) & Finance Research Letters")
+st.caption("**Status:** Draft in progress | Submission: May 2026")
 
 st.markdown("---")
 
 # Research Question
 st.markdown("#### Research Question")
 st.write("""
-Did Trump's second-term climate policy rollback events (2025–2026) generate significantly different 
-stock market reactions across US, European, and Asian markets? And do these differences reflect 
-regional regulatory environments — particularly the divergence between US deregulation and Europe's 
-strengthening climate framework (CSRD, CSDDD, SFDR)?
+Did the four major climate policy reversal events of Trump's second term (January 2025 – February 2026)
+generate measurable abnormal returns in global equity markets, and do firm-level characteristics or
+regional regulatory environments explain the cross-sectional variation in these reactions?
 """)
 
 st.info("""
-**Key Finding: The "Regulatory Safe Haven" Effect.** Non-US markets became progressively insulated 
-from US climate policy shocks over the 13-month study period. The Europe regression dummy increased 
-from +1.84 (p = 0.020) in Event 1 to +2.53 (p = 0.038) in Event 4, while Asia moved from +1.39 
-(p = 0.056) to +2.42 (p = 0.044) — with Japan's Nikkei 225 and South Korea's KOSPI reaching 
-effectively zero abnormal returns by the final event.
+**Headline finding.** Of the four climate deregulation events studied, only the EPA Proposed Rule
+of 1 August 2025 (Event 3) produced a statistically significant negative market reaction. The result is
+robust across two independent datasets (Yahoo Finance, Investing.com) and survives in a firm-level
+pooled panel regression covering 929 firms across the US, Europe, and Asia, with controls for ROA,
+market capitalisation, leverage, sector, and event fixed effects.
 """)
 
 st.markdown("---")
@@ -88,35 +86,40 @@ st.markdown("## Principal Findings")
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("US Market (S&P 500)", "-3.1%", "CAR across all 4 events")
+    st.metric("Event 3 CAAR", "-1.50%", "p = 0.006 [-1,+1] window")
 with col2:
-    st.metric("Europe Mean CAR", "-1.22% → -0.66%", "Progressive insulation")
+    st.metric("Pooled Event 3 β", "-2.14%", "p < 0.001, firm-level")
 with col3:
-    st.metric("Asia Mean CAR", "-1.67% → -0.77%", "Nikkei/KOSPI → ~0%")
+    st.metric("Firms Analysed", "929", "US 501 / EU 333 / Asia 95")
 with col4:
-    st.metric("R-squared", "56–63%", "Region explains CAR variation")
+    st.metric("Datasets", "2", "Yahoo + Investing.com")
 
 st.markdown("---")
 
 st.markdown("#### Five Principal Findings")
 
 st.write("""
-**1. Significant negative global reactions.** All four events generated statistically significant negative 
-CAARs across global equity markets, confirmed by both parametric t-tests and non-parametric Wilcoxon 
-signed-rank tests (p < 0.01 for Events 1-3, p < 0.05 for Event 4).
+**1. Single-event significance.** Of four climate deregulation events analysed, only the EPA Proposed
+Rule (Event 3, 1 August 2025) generated a statistically significant negative market reaction at the
+index level (CAAR[-1,+1] = -1.50%, p = 0.006). The other three events showed no significant abnormal
+returns in the primary window.
 
-**2. US consistently most affected.** The S&P 500 experienced CARs of approximately -3.1% in the [-1,1] 
-window across all four events — remarkably stable despite the events spanning 13 months.
+**2. Anticipation effect.** The final rescission (Event 4, 12 February 2026) produced no significant
+reaction despite being described by the EPA as the single largest deregulatory action in US history,
+consistent with full market anticipation following Event 3's proposed rule five months earlier.
 
-**3. European insulation.** European markets (DAX, FTSE 100, CAC 40, STOXX 600) experienced significantly 
-smaller reactions, with mean CARs declining from -1.22% in Event 1 to -0.66% in Event 4.
+**3. Cross-source replication.** Independent replication across two data sources produced directionally
+identical and statistically consistent results (Yahoo: -1.50%, p = 0.006; Investing.com: -1.37%, p = 0.003),
+reinforcing robustness against data-source bias.
 
-**4. Asian decoupling.** The most dramatic evolution — Japan's Nikkei 225 and South Korea's KOSPI reached 
-essentially zero abnormal returns by Event 4, indicating complete decoupling from US climate policy.
+**4. Firm-level confirmation.** A pooled panel regression across 929 firms × 4 events (3,592 firm-event
+observations) confirms the Event 3 effect (β = -2.14%, p < 0.001) survives controls for ROA, market
+capitalisation, leverage, sector fixed effects, and firm-clustered standard errors.
 
-**5. ETF sentiment amplification.** The US-listed MSCI Asia Pacific ETF maintained large negative CARs 
-of ~-2.5% across all events despite actual Asian indices converging toward zero — reflecting US investor 
-sentiment rather than actual Asian market conditions.
+**5. Composition over geography.** The cross-regional differences observed at the index level largely
+attenuate once firm characteristics are controlled for. The Event 3 reaction is broad-based across
+developed markets, with sector composition and firm fundamentals explaining most of the cross-firm
+variation rather than regional location per se.
 """)
 
 st.markdown("---")
@@ -125,19 +128,25 @@ st.markdown("---")
 st.markdown("## Four Policy Events Studied")
 
 events_data = [
-    ("Event 1 — 20 Jan 2025", "Inauguration Executive Orders", 
-     "Paris withdrawal, IRA freeze, energy emergency declaration", "-1.625%"),
-    ("Event 2 — 12 Mar 2025", "EPA Zeldin Recommendation", 
-     "EPA Administrator recommends reconsidering Endangerment Finding", "-1.663%"),
-    ("Event 3 — 1 Aug 2025", "EPA Proposed Rule", 
-     "Proposed rule to rescind the Endangerment Finding", "-1.126%"),
-    ("Event 4 — 12 Feb 2026", "Endangerment Finding Rescission", 
-     "Final rescission — EPA calls it 'the single largest deregulatory action in US history'", "-0.995%"),
+    ("Event 1 — 20 Jan 2025", "Inauguration Executive Orders",
+     "Paris Agreement withdrawal, IRA spending freeze, national energy emergency declaration",
+     "+0.28%", "p = 0.358 (n.s.)"),
+    ("Event 2 — 12 Mar 2025", "EPA Zeldin Recommendation",
+     "EPA Administrator formally recommends reconsidering the 2009 Endangerment Finding",
+     "+0.06%", "p = 0.866 (n.s.)"),
+    ("Event 3 — 1 Aug 2025", "EPA Proposed Rule",
+     "Federal Register publication of the proposed rule to rescind the Endangerment Finding (570,000+ public comments)",
+     "-1.50%", "p = 0.006 ***"),
+    ("Event 4 — 12 Feb 2026", "Endangerment Finding Rescission",
+     "Final rescission — described by the EPA as the single largest deregulatory action in US history",
+     "+0.10%", "p = 0.861 (n.s.)"),
 ]
 
-for date, title, desc, caar in events_data:
-    with st.expander(f"**{date}** — {title} (CAAR: {caar})"):
+for date, title, desc, caar, sig in events_data:
+    with st.expander(f"**{date}** — {title} (CAAR[-1,+1]: {caar}, {sig})"):
         st.write(desc)
+
+st.caption("CAARs reported on the [-1,+1] window from the Yahoo Finance dataset. *** p < 0.01.")
 
 st.markdown("---")
 
@@ -148,98 +157,115 @@ col1, col2 = st.columns(2, gap="large")
 
 with col1:
     st.markdown("#### Event Study Design")
-    st.write("• Market model with 250-day estimation window (OLS)")
-    st.write("• 9 event windows: [0], [0,1], [0,2], [-1,1], [-2,2], [-3,3], [-5,5], [-1,5], [-5,10]")
-    st.write("• Primary window: [-1,1]")
-    st.write("• Parametric t-test & non-parametric Wilcoxon signed-rank test")
-    st.write("• Cross-sectional OLS regression with regional dummy variables")
-    
-    st.markdown("#### Cross-Sectional Regression Model")
-    st.code("""
-CAR = α + β₁(Europe) + β₂(Asia) + ε
+    st.write("• Standard market model with 250-day estimation window (OLS)")
+    st.write("• 11 event windows tested: [0], [0,1], [0,2], [-1,1], [-2,2], [-3,3], [-5,5], [-1,5], [-5,10], [-5,-1], [1,5]")
+    st.write("• Primary window: [-1,+1]")
+    st.write("• Parametric t-test and non-parametric Wilcoxon signed-rank test")
+    st.write("• Pre/post-announcement decomposition to test for leakage and drift")
 
-Where:
-  α (intercept) = US market reaction (reference)
-  β₁ = Europe differential vs US
-  β₂ = Asia differential vs US
+    st.markdown("#### Firm-Level Pooled Regression")
+    st.code("""
+CAR[-5,+5] = α + β·EventFE + γ·RegionFE
+           + δ·SectorFE + ROA + log(MktCap)
+           + Leverage + ε
+
+Standard errors clustered by firm.
     """, language=None)
 
 with col2:
-    st.markdown("#### Markets & Indices (N=9)")
-    st.write("• **US:** S&P 500")
-    st.write("• **Europe:** DAX, FTSE 100, CAC 40, EURO STOXX 600")
-    st.write("• **Asia:** Nikkei 225, Hang Seng, KOSPI, MSCI Asia Pacific")
+    st.markdown("#### Markets & Sample")
+    st.write("• **Index-level (N=9):** S&P 500; DAX, FTSE 100, CAC 40, STOXX 600; Nikkei 225, Hang Seng, KOSPI, MSCI Asia-Pacific")
+    st.write("• **Firm-level (N=929):** S&P 500 constituents (501); STOXX 600 constituents (333); large-cap Asian sample across Nikkei, Hang Seng, KOSPI (95)")
     st.write("• **Benchmark:** MSCI World")
-    
+
     st.markdown("#### Data Sources")
-    st.write("• Bloomberg Terminal (daily index returns)")
-    st.write("• Refinitiv Eikon (ESG scores)")
-    st.write("• Kenneth French Data Library (Fama-French factors)")
-    st.write("• LSEG (green revenue classification)")
+    st.write("• **Index returns & firm prices:** Yahoo Finance (Amit) and Investing.com (Sairam) — independent replication")
+    st.write("• **Firm fundamentals:** Yahoo Finance (ROA, market capitalisation, sector classification)")
 
     st.markdown("#### Implementation")
-    st.write("• All analysis conducted in **R**")
-    st.write("• OLS estimation, parametric & non-parametric testing")
-    st.write("• Diagnostic checks: Shapiro-Wilk, VIF, Cook's distance")
+    st.write("• Index-level analysis: **R** (tidyverse, lm, wilcox.test)")
+    st.write("• Firm-level extension: **Python** (yfinance, pandas, statsmodels)")
+    st.write("• Diagnostics: clustered SE, HC3 robust SE, winsorisation at 1%/99%")
 
 st.markdown("---")
 
-# Cross-Sectional Results Table
-st.markdown("## Cross-Sectional Regression Results [-1,1] Window")
+# Index-Level Cross-Sectional Results
+st.markdown("## Index-Level Cross-Sectional Results [-1,+1]")
 
 import pandas as pd
 
-reg_data = {
-    "Variable": ["Intercept (US)", "Europe dummy", "Asia dummy", "R-squared", "Adj. R-squared"],
-    "Event 1": ["-3.062***", "+1.840**", "+1.392*", "0.625", "0.500"],
-    "Event 2": ["-3.114***", "+1.805**", "+1.461*", "0.603", "0.471"],
-    "Event 3": ["-3.193***", "+2.447**", "+2.204**", "0.633", "0.511"],
-    "Event 4": ["-3.199***", "+2.534**", "+2.425**", "0.563", "0.417"],
+idx_data = {
+    "Event": ["Event 1 — Inauguration", "Event 2 — Zeldin", "Event 3 — Proposed Rule", "Event 4 — Rescission"],
+    "CAAR (Yahoo)": ["+0.28%", "+0.06%", "-1.50%***", "+0.10%"],
+    "CAAR (Investing)": ["+0.22%", "+0.16%", "-1.37%***", "+0.32%"],
+    "Europe dummy (β, p)": ["-0.39 (0.81)", "-0.03 (0.98)", "-1.70 (0.28)", "+0.38 (0.87)"],
+    "Asia dummy (β, p)": ["-0.39 (0.59)", "+0.72 (0.55)", "-1.62 (0.29)", "+0.39 (0.86)"],
 }
 
-df = pd.DataFrame(reg_data)
-st.dataframe(df, use_container_width=True, hide_index=True)
-st.caption("*, **, *** indicate significance at 10%, 5%, 1% levels. Standard errors omitted for brevity.")
+df_idx = pd.DataFrame(idx_data)
+st.dataframe(df_idx, use_container_width=True, hide_index=True)
+st.caption("CAARs in the [-1,+1] window. *** p < 0.01. Regional dummies estimated relative to the US (S&P 500) intercept; small index-level cross-section (N=9) limits power on regional differences.")
 
 st.markdown("---")
 
-# Regional CAR Table
-st.markdown("## Mean CARs by Region [-1,1] Window")
+# Firm-Level Pooled Regression Result
+st.markdown("## Firm-Level Pooled Panel Regression")
+st.caption("Dependent variable: winsorised CAR[-5,+5]. N = 3,592 firm-event observations. Standard errors clustered by firm.")
 
-car_data = {
-    "Region": ["US (S&P 500)", "Europe (mean of 4)", "Asia (mean of 4)"],
-    "Event 1": ["-3.062%", "-1.222%", "-1.670%"],
-    "Event 2": ["-3.114%", "-1.309%", "-1.653%"],
-    "Event 3": ["-3.193%", "-0.746%", "-0.989%"],
-    "Event 4": ["-3.199%", "-0.664%", "-0.774%"],
+fl_data = {
+    "Variable": ["Constant", "Event 2 (vs Event 1)", "Event 3 (vs Event 1)", "Event 4 (vs Event 1)",
+                 "Region: Europe (vs US)", "Region: Asia (vs US)", "ROA", "log(Market Cap)",
+                 "Sector fixed effects", "R-squared"],
+    "Coefficient": ["+0.0089", "+0.0017", "-0.0214", "-0.0079", "+0.0011", "-0.0002",
+                    "-0.0675", "+0.0008", "Included", "0.039"],
+    "p-value": ["0.610", "0.560", "<0.001 ***", "0.013 **", "0.623", "0.972",
+                "0.003 ***", "0.224", "—", "—"],
 }
 
-df2 = pd.DataFrame(car_data)
-st.dataframe(df2, use_container_width=True, hide_index=True)
+df_fl = pd.DataFrame(fl_data)
+st.dataframe(df_fl, use_container_width=True, hide_index=True)
+st.caption("*** p < 0.01, ** p < 0.05. Event 3 effect (-2.14%) is the largest and most significant coefficient; "
+           "regional dummies are not significant once firm characteristics and sector fixed effects are included.")
 
 st.markdown("---")
 
 # Implications
-st.markdown("## Implications")
+st.markdown("## Implications and Interpretation")
 
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.markdown("#### For Investors")
+    st.markdown("#### Why Event 3?")
     st.write("""
-    Geographic diversification across regulatory regimes provides meaningful insulation from 
-    single-country policy risk. The climate governance framework of a jurisdiction is a relevant 
-    factor in assessing market resilience — not just firm-level ESG scores.
+    Event 3 was the only event in the sequence with concrete, legally binding regulatory content —
+    the formal Federal Register publication initiating the 60-day notice-and-comment period. Events 1
+    and 2 conveyed political intent; Event 4 ratified what Event 3 had already proposed. Markets price
+    legal commitment, not rhetoric.
     """)
 
 with col2:
-    st.markdown("#### For Policymakers")
+    st.markdown("#### Composition vs. geography")
     st.write("""
-    Unilateral climate policy reversal primarily imposes costs on the domestic market rather than 
-    undermining climate commitments globally. Durable, legally embedded climate governance frameworks 
-    — as exemplified by the EU's CSRD/CSDDD/SFDR — provide tangible economic stability benefits 
-    that investors recognise and price.
+    The index-level finding of larger non-US reactions weakens substantially in the firm-level regression
+    once sector composition is controlled for. The Event 3 reaction appears to operate primarily through
+    sector-level channels (notably interactions with profitability and industry exposure) rather than
+    through cross-jurisdictional regulatory differentials.
     """)
+
+st.markdown("---")
+
+# Limitations and Future Research
+st.markdown("## Limitations and Future Research")
+
+st.write("""
+The firm-level extension is constrained by sample size (929 firms) and the absence of climate-specific
+firm characteristics (carbon intensity, green revenue share, ESG quality scores). Future work could
+substantially expand the sample with point-in-time index constituents from Bloomberg or Refinitiv,
+incorporate carbon-emissions data from CDP or MSCI ESG, and test interaction terms between event dummies
+and firm-level climate exposure to better identify the channels driving the Event 3 reaction. The
+single-country focus of the policy events also limits external validity; comparable studies of climate
+policy reversal in other major regulatory regimes would strengthen generalisability.
+""")
 
 st.markdown("---")
 
@@ -249,16 +275,16 @@ st.markdown("## Key Literature")
 col1, col2 = st.columns(2, gap="large")
 
 with col1:
-    st.write("• **Aras, Grebe & Schiereck (2025)** — CDP A-List event study methodology (our primary reference)")
-    st.write("• **Koch & Schiereck (2025)** — Trump 2024 election impact using green revenue share")
-    st.write("• **Ramelli et al. (2021)** — Trump 2016 election: carbon-intensive firms rewarded short-term")
+    st.write("• **Aras, Grebe & Schiereck (2025)** — CDP A-List event study methodology (primary methodological reference)")
+    st.write("• **Koch & Schiereck (2025)** — Trump 2024 election impact using green revenue share classification")
+    st.write("• **Ramelli et al. (2021)** — Trump 2016 election: carbon-intensive firms in the short-run")
     st.write("• **Bolton & Kacperczyk (2023)** — Global carbon premium across 77 countries")
 
 with col2:
     st.write("• **Pástor & Veronesi (2012, 2013)** — Political uncertainty and risk premia framework")
-    st.write("• **Baker, Bloom & Davis (2016)** — Economic Policy Uncertainty index")
-    st.write("• **Martins et al. (2025)** — 2024 US election: cross-market renewable energy reactions")
-    st.write("• **Mukanjari & Sterner (2024)** — Paris Agreement & Trump effects on energy stocks")
+    st.write("• **Ahmad et al. (2025)** — G20 country-level reactions to sequential Trump events")
+    st.write("• **Martins et al. (2025)** — Cross-market renewable-energy reactions to the 2024 US election")
+    st.write("• **Mukanjari & Sterner (2024)** — Paris Agreement and Trump effects on energy stocks")
 
 st.markdown("---")
 
@@ -270,26 +296,26 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.markdown("#### Quantitative Finance")
     st.write("• Event study methodology")
-    st.write("• Factor models & risk attribution")
+    st.write("• Factor models and risk attribution")
     st.write("• Climate policy uncertainty pricing")
 
 with col2:
-    st.markdown("#### ESG & Sustainable Finance")
+    st.markdown("#### ESG and Sustainable Finance")
     st.write("• Carbon premium dynamics")
     st.write("• Regulatory divergence effects")
     st.write("• Cross-market ESG transmission")
 
 with col3:
     st.markdown("#### Data-Driven Analytics")
-    st.write("• Financial econometrics in R & Python")
+    st.write("• Financial econometrics in R and Python")
     st.write("• Market microstructure analysis")
-    st.write("• Statistical modelling & outlier detection")
+    st.write("• Statistical modelling and outlier detection")
 
 st.write("""
-Open to research collaborations at the intersection of data science, climate finance, and international 
+Open to research collaborations at the intersection of data science, climate finance, and international
 financial markets.
 """)
 
 st.markdown("---")
 
-st.caption("Research updates and working papers will be available upon completion. Target publication: JUMS (Junior Management Science) & Finance Research Letters.")
+st.caption("Full thesis manuscript and replication code will be made available upon submission and approval.")
