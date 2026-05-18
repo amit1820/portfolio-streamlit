@@ -93,7 +93,7 @@ with col2:
     Data and BI Analyst with 2.5 years of full-time professional experience plus current analytics 
     roles at Deutsche Börse Group. PL-300 certified, building production Power BI dashboards, 
     statistical models, and Python automation for executive stakeholders across financial services 
-    and infrastructure. **Available full-time from May 2026.**
+    and infrastructure. **Available full-time from July 2026.**
     """)
     st.markdown("#### Core Skills")
     st.write("Power BI (PL-300) | SQL | Python | Databricks | R | Excel | ETL | Automation")
